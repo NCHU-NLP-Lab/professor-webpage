@@ -19,15 +19,17 @@ preloader gif、`jquery-1.10.2`、Owl Carousel、文字旋轉外掛、舊式時�
 > **首頁不是被「載入」，而是被「生成」。**
 
 - 視覺第一秒就讓訪客感受到「這個網站本身是 NLP 系統的輸出」。
-- 把現有部署中的 AI 服務（AI 新學伴 / Eduxplore / SDG Explore）放到首頁主秀
-  位置，證明「研究 → 產品 → 服務全校」這條完整鏈路。
-- 副館長（圖書館行政）+ 教授（研究）+ 老師（教學）三軌身份要被看到，
-  不是只有「教授」一個 label。
+- 把現有部署中的 AI 服務家族（AI 興學伴 / 神農 TAIDE / 事實查核 /
+  彰基諮詢 / 阿美族語對話系統）放到首頁主秀位置，證明
+  「研究 → 產品 → 服務全校 → 跨機構落地」這條完整鏈路。
+- **副教務長**（教務行政）+ 教授（研究）+ NLP Lab 主持人（產品落地）三軌
+  身份要被看到，不是只有「教授」一個 label。
 
 ## 三、Hero 概念（已演進）
 
 第一版構想：用 Querator AI 當 Live Demo 主秀。
-**修正**：Querator 是 2018–2022 的成果，已舊。改以 **AI 新學伴** 為主秀。
+**修正**：Querator 是 2018–2022 的成果，已舊。改以 **AI 興學伴
+（eduxplore.nlpnchu.org）** 為主秀。
 
 新版 Hero 構想：
 - 黑底、等寬字、極簡。
@@ -42,9 +44,10 @@ preloader gif、`jquery-1.10.2`、Owl Carousel、文字旋轉外掛、舊式時�
 
 | Section | 目的 | 「酷」的具體做法 |
 |---|---|---|
-| **Hero** | 第一秒建立差異化 | Token streaming 動畫 + 聊天輸入框（接 AI 新學伴） |
-| **Identity** | 三軌身份 | 教授 / 圖書館副館長 / NLP Lab 主持人，並列呈現 |
-| **Live Demo: AI 新學伴** | 展示已部署中的服務 | 嵌入或連結 Eduxplore / SDG Explore，附上使用量數字（待補） |
+| **Hero** | 第一秒建立差異化 | Token streaming 動畫 + 聊天輸入框（接 AI 興學伴） |
+| **Identity** | 三軌身份 | 教授 / **副教務長** / NLP Lab 主持人，並列呈現 |
+| **Live Demo: AI 興學伴** | 展示已部署中的服務 | 嵌入或連結 eduxplore.nlpnchu.org，附上使用量數字（待補） |
+| **Deployed Services** | 證明「能做出來、能落地」 | 卡片陣列：神農 TAIDE / 事實查核（Claude API + MCP）/ 彰基諮詢 / 阿美族語對話系統，每張附簡短規格與一段 demo |
 | **Research Constellation** | 視覺化學術版圖 | d3-force 力導向圖，節點 = paper，顏色 = topic（NLG / MRC / Continual Learning / Agentic AI / 原住民族語…），可拖曳、hover、click 開 PDF |
 | **Impact** | 真實學術影響力 | h-index、引用數、頂會數，scroll 觸發 count-up + sparkline，從 Google Scholar 拉真實資料 |
 | **Recent Work** | 2024–2026 主軸 | Agentic AI、阿美語對話系統、教育科技 LLM…（待范老師補充清單） |
@@ -69,37 +72,56 @@ preloader gif、`jquery-1.10.2`、Owl Carousel、文字旋轉外掛、舊式時�
 - Lighthouse 100/100；首屏 gzip 後 < 50KB。
 - 尊重 `prefers-reduced-motion`、鍵盤可達、語意 HTML、色彩對比 AA+。
 
-## 六、待范老師確認的事項
+## 六、服務家族（依 nlpnchu.org 與 eduxplore.nlpnchu.org 公開資訊）
 
-1. **AI 新學伴的家族成員**：Eduxplore + SDG Explore，還有第三、第四個嗎？
-2. **底層架構**：自家訓練的模型 + RAG？還是 GPT/Claude API + 自家 retrieval/agent
-   框架？決定首頁能不能標榜「自研」或「整合」。
-3. **使用量數字**：可不可以公開「已服務 X 名學生 / 回答 Y 個問題 /
-   涵蓋 Z 門課程」這類數字？
-4. **Demo 後端可用性**：Eduxplore 有沒有公開 HTTP API、CORS 開不開？
+> 2026-05-01 web search 抓到的清單。實際細節仍待范老師補正。
+
+| 服務 | 對象 | 已知技術線索 | 狀態 |
+|---|---|---|---|
+| **AI 興學伴 / eduxplore** | 中興大學師生 | 整合校務資訊（課程搜尋、師資查詢…），定位為 LearningHub | 已上線 `eduxplore.nlpnchu.org` |
+| **神農 TAIDE** | 農業 / 校內？ | 基於台灣本土 LLM (TAIDE) 的 RAG 架構 | 已上線 |
+| **事實查核系統** | 一般使用者 / 媒體 | Claude API + MCP 協議 | 已上線 |
+| **彰化基督教醫院諮詢系統** | 醫院訪客 / 員工 | 入館規則智慧問答 | 已上線（跨機構落地的代表作） |
+| **阿美族語對話系統** | 原住民語使用者 / 教學 | LLM + 語音辨識，低資源語言應用 | 研究/部署中 |
+
+**SDG Explore** 之前列為家族成員 — 待確認是否仍為主推項目，或已併入興學伴。
+
+## 七、待范老師確認的事項
+
+1. **服務名稱正名**：是「AI **興**學伴」還是「AI **新**學伴」？官方域名是
+   `eduxplore`，看起來「興」是正式名（諧音「興大 + 興學」）。
+2. **SDG Explore 還在嗎？** 還是已併入興學伴？
+3. **底層架構分工**：上表中興學伴 / 神農 / 彰基諮詢分別走自家模型還是 API？
+   決定首頁能不能標榜「自研」或「整合」或「兼具」。
+4. **使用量數字**：可不可以公開「已服務 X 名學生 / 回答 Y 個問題 /
+   涵蓋 Z 門課程」？特別是彰基那條，跨機構的數字最有說服力。
+5. **Demo 後端可用性**：eduxplore 有沒有公開 HTTP API、CORS 開不開？
    能直接打就把 Hero 聊天框做成真的；不能就退回 iframe 嵌入或 canned demo。
-5. **副館長身分要不要露出**？（建議：要，這是「不同等級」的具體訊號之一）
-6. **其它最近專案**：Agentic AI、阿美語對話系統、教育科技 LLM…
-   想列哪幾個當 "Recent Work" 主軸？
-7. **語言策略**：中文為主英文為輔？還是英文為主給國際同行看？
+6. **行政身份露出**：**副教務長**這個身份是現任嗎？要不要在 Identity 主露出？
+   （建議：要 — 教務長層級的行政 + AI 落地全校，是非常硬的差異化訊號。）
+7. **Recent Work 主軸**：Agentic AI、阿美族語、教育科技 LLM、表格檢索（ACL 2025）…
+   想列哪幾個？
+8. **語言策略**：中文為主英文為輔？還是英文為主給國際同行看？
 
-## 七、執行進路
+## 八、執行進路
 
 兩個選項：
-- **(A) 一次到位**：直接重寫整站，先做 Hero + 新學伴 Demo + Constellation 三段，
+- **(A) 一次到位**：直接重寫整站，先做 Hero + 興學伴 Demo + Constellation 三段，
   其他沿用文字內容但重排。
 - **(B) 先做 Hero 原型**：只做 Hero 一段給范老師看，氣質對了再展開全站。
 
 **目前傾向 (B) → (A)**：避免做完才發現方向不對。
 
-## 八、現階段進度
+## 九、現階段進度
 
 - [x] 現況體檢
 - [x] 核心理念與視覺方向
-- [x] Hero 概念（已演進到以 AI 新學伴為主秀）
+- [x] Hero 概念（已演進到以 AI 興學伴為主秀）
 - [x] 全站區段規劃（草稿）
 - [x] 技術路線決策
-- [ ] 范老師回覆第六節的待確認事項
-- [ ] 取得 AI 新學伴的接入方式（API / iframe / canned）
+- [x] 服務家族公開資訊收集（2026-05-01 web search）
+- [x] 副教務長身份納入 Identity 規劃
+- [ ] 范老師回覆第七節的待確認事項
+- [ ] 取得 AI 興學伴的接入方式（API / iframe / canned）
 - [ ] Hero 原型實作
 - [ ] 全站實作
