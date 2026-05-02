@@ -19,6 +19,12 @@
 - Office: Science Building Room 704
 - Email: yfan@nchu.edu.tw
 
+## Profiles
+
+- ORCID: [0000-0002-6894-015X](https://orcid.org/0000-0002-6894-015X)
+- Google Scholar: [AGJnJ98AAAAJ](https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en)
+- DBLP: [Yao-Chung Fan](https://dblp.org/pers/hd/f/Fan:Yao=Chung)
+
 ## Lab
 
 - NCHU NLP Lab — https://nlpnchu.org/

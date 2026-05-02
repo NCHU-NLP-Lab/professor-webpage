@@ -1,6 +1,8 @@
 # Publications — Yao-Chung Fan
 
-> Selected recent publications. For the complete list, see [Google Scholar](https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en).
+ORCID: [0000-0002-6894-015X](https://orcid.org/0000-0002-6894-015X) · DBLP: [Yao-Chung Fan](https://dblp.org/pers/hd/f/Fan:Yao=Chung) · Scholar: [AGJnJ98AAAAJ](https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en)
+
+> Selected recent publications. For the complete list, see DBLP / Google Scholar above.
 
 ## 2025
 
