@@ -4,6 +4,11 @@ ORCID: [0000-0002-6894-015X](https://orcid.org/0000-0002-6894-015X) · DBLP: [Ya
 
 > Selected recent publications. For the complete list, see DBLP / Google Scholar above.
 
+## 2026
+
+- **CGPT: Cluster-Guided Partial Tables with LLM-Generated Supervision for Table Retrieval**. *The Web Conference 2026 (WWW '26)*.
+- **STAR: Semantic Table Representation with Header-Aware Clustering and Adaptive Weighted Fusion**. *The Web Conference 2026 (WWW '26)*.
+
 ## 2025
 
 - **Improving Table Retrieval through Question Generation from Partial Tables**. *ACL 2025*.
