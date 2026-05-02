@@ -16,6 +16,7 @@ import logging
 import os
 from collections import deque
 from contextlib import asynccontextmanager
+from datetime import date
 from time import monotonic
 from typing import AsyncIterator
 
@@ -46,6 +47,7 @@ MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6")
 MAX_TOKENS = int(os.getenv("MAX_TOKENS", "600"))
 RL_LIMIT = int(os.getenv("RATE_LIMIT", "10"))      # per IP per window
 RL_WINDOW = int(os.getenv("RATE_WINDOW", "60"))    # seconds
+DAILY_LIMIT = int(os.getenv("DAILY_LIMIT", "1000"))  # per Cloud Run instance per day
 
 SYSTEM_PROMPT_TEMPLATE = """You answer questions about Prof. Yao-Chung Fan (范耀中) on his personal homepage at yfan.nlpnchu.org. You are NOT his AI assistant — you are an information desk on his website.
 
@@ -119,6 +121,10 @@ client = AsyncAnthropic()  # reads ANTHROPIC_API_KEY
 
 _rl: dict[str, deque] = {}
 
+# Per-instance daily quota. Not perfect (max-instances=N → real limit is N*DAILY_LIMIT)
+# but cheap and good enough; an attacker has to keep ALL instances warm to clear it.
+_daily = {"date": "", "count": 0}
+
 
 def _rate_check(ip: str) -> bool:
     now = monotonic()
@@ -131,11 +137,41 @@ def _rate_check(ip: str) -> bool:
     return True
 
 
+def _daily_check() -> bool:
+    today = date.today().isoformat()
+    if _daily["date"] != today:
+        _daily["date"] = today
+        _daily["count"] = 0
+    if _daily["count"] >= DAILY_LIMIT:
+        return False
+    _daily["count"] += 1
+    return True
+
+
 def _client_ip(request: Request) -> str:
     fwd = request.headers.get("x-forwarded-for", "")
     if fwd:
         return fwd.split(",")[0].strip()
     return request.client.host if request.client else "unknown"
+
+
+def _origin_ok(request: Request) -> bool:
+    """Reject requests that don't come from yfan.nlpnchu.org / localhost dev.
+
+    Browsers always send Origin on cross-origin POSTs and Referer for navigations,
+    so legitimate frontend traffic clears either check. Curl / scripted abusers
+    that don't bother spoofing headers get 403'd before we burn Anthropic tokens.
+    Determined attackers can spoof both — this just stops drive-by abuse.
+    """
+    origin = request.headers.get("origin", "")
+    if origin and origin in ALLOWED_ORIGINS:
+        return True
+    referer = request.headers.get("referer", "")
+    if referer:
+        for allowed in ALLOWED_ORIGINS:
+            if referer == allowed or referer.startswith(allowed + "/"):
+                return True
+    return False
 
 
 # ---- routes ---------------------------------------------------------------
@@ -151,11 +187,17 @@ async def healthz():
         "model": MODEL,
         "context_chars": len(_context_text),
         "rate_limit": f"{RL_LIMIT}/{RL_WINDOW}s",
+        "daily_limit": DAILY_LIMIT,
+        "daily_used": _daily["count"] if _daily["date"] == date.today().isoformat() else 0,
     }
 
 
 @app.post("/chat")
 async def chat(body: ChatReq, request: Request) -> StreamingResponse:
+    if not _origin_ok(request):
+        raise HTTPException(status_code=403, detail="forbidden")
+    if not _daily_check():
+        raise HTTPException(status_code=429, detail="daily quota exceeded")
     ip = _client_ip(request)
     if not _rate_check(ip):
         raise HTTPException(status_code=429, detail="rate limit exceeded")
