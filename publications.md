@@ -11,7 +11,7 @@ ORCID: [0000-0002-6894-015X](https://orcid.org/0000-0002-6894-015X) · DBLP: [Ya
 
 ## 2025
 
-- **Improving Table Retrieval through Question Generation from Partial Tables**. *ACL 2025*.
+- **Improving Table Retrieval through Question Generation from Partial Tables**. *TRL @ ACL 2025* (Workshop on Table Representation Learning).
 - **GAIN: Gradual Adaptation for Continual Learning in Low-resource Environments**. *The Web Conference 2025 (WWW '25)*.
 
 ## 2024

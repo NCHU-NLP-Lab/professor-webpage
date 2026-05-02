@@ -10,7 +10,7 @@ Yao-Chung Fan leads research and deployment of production AI systems serving NCH
 
 ## Publications
 
-- [Selected publications (2024–2026)](https://yfan.nlpnchu.org/publications.md): The Web Conference 2026 (×2 — CGPT, STAR), ACL 2025, The Web Conference 2025, ACL Findings 2024, IEEE/ACM TASLP 2024, IEEE TLT 2024, ACM TALLIP 2024, ROCLING 2024
+- [Selected publications (2024–2026)](https://yfan.nlpnchu.org/publications.md): The Web Conference 2026 (×2 — CGPT, STAR), TRL @ ACL 2025 workshop, The Web Conference 2025, ACL Findings 2024, IEEE/ACM TASLP 2024, IEEE TLT 2024, ACM TALLIP 2024, ROCLING 2024
 - [Google Scholar profile](https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en)
 - [DBLP author page](https://dblp.org/pers/hd/f/Fan:Yao=Chung)
 - [ORCID 0000-0002-6894-015X](https://orcid.org/0000-0002-6894-015X)
