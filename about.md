@@ -28,8 +28,9 @@
 ## Lab
 
 - NCHU NLP Lab — https://nlpnchu.org/
-- GitHub — https://github.com/NCHU-NLP-Lab
-- Hugging Face — https://huggingface.co/NchuNLP
+- GitHub: [NCHU-NLP-Lab](https://github.com/NCHU-NLP-Lab)
+- GitHub: [UDICatNCHU](https://github.com/UDICatNCHU)
+- Hugging Face: [NchuNLP](https://huggingface.co/NchuNLP)
 
 ## Education
 

@@ -24,6 +24,7 @@ Yao-Chung Fan leads research and deployment of production AI systems serving NCH
 
 - [NCHU NLP Lab homepage](https://nlpnchu.org/)
 - [GitHub: NCHU-NLP-Lab](https://github.com/NCHU-NLP-Lab)
+- [GitHub: UDICatNCHU](https://github.com/UDICatNCHU)
 - [Hugging Face: NchuNLP](https://huggingface.co/NchuNLP)
 
 ## Contact
