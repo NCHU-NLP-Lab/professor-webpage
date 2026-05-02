@@ -264,611 +264,878 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&display=swap">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
 
   :root {
-    --paper:    #F4ECDF;
-    --paper-2:  #EDE3D2;
-    --ink:      #1A1614;
-    --ink-2:    #2B2522;
-    --muted:    #6B5F52;
-    --rule:     #C9BBA3;
-    --accent:   #7B1F25;       /* deep crimson */
-    --accent-2: #4A0F13;
+    --bg:        oklch(0.13 0.005 240);
+    --bg-deep:   oklch(0.09 0.005 240);
+    --fg:        oklch(0.96 0.01 240);
+    --muted:     oklch(0.55 0.01 240);
+    --border:    oklch(0.22 0.005 240);
+    --accent:    oklch(0.78 0.16 175);
+    --accent-rgb: 86 220 200;
 
-    --serif:   'Spectral', 'Noto Serif TC', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
-    --sans:    'Inter', -apple-system, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    --font-sans: 'Inter', 'Noto Sans TC', -apple-system, system-ui, sans-serif;
 
-    --measure: 38em;
-    --gutter:  clamp(1.25rem, 5vw, 3rem);
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --max: 880px;
   }
 
   body {
-    background: var(--paper);
-    background-image:
-      radial-gradient(1200px 800px at 100% -20%, rgba(123, 31, 37, 0.05), transparent 50%),
-      radial-gradient(800px 600px at -10% 110%, rgba(74, 15, 19, 0.04), transparent 60%);
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: 19px;
-    line-height: 1.6;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, oklch(0.20 0.04 175 / 0.25), transparent 60%),
+      radial-gradient(900px 600px at 0% 100%, oklch(0.18 0.05 260 / 0.20), transparent 60%),
+      var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "kern", "liga", "onum";
   }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
   }
 
-  a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(123, 31, 37, 0.25);
-    transition: border-color 200ms ease, color 200ms ease;
-  }
-  a:hover {
-    color: var(--accent-2);
-    border-bottom-color: var(--accent);
-  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-  ::selection {
-    background: rgba(123, 31, 37, 0.18);
-    color: var(--ink);
-  }
+  main { display: block; }
 
-  main {
-    max-width: var(--measure);
-    margin: 0 auto;
-    padding: clamp(3rem, 8vw, 6rem) var(--gutter) 2rem;
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: var(--gutter);
+    overflow: hidden;
   }
-
-  /* ----- MASTHEAD ----- */
-  .masthead {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 0.6rem;
-    margin-bottom: 2.5rem;
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink);
-    font-weight: 500;
+  #bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.5;
+    pointer-events: none;
   }
-  .masthead .title { letter-spacing: 0.22em; }
-  .masthead .date  { color: var(--muted); }
-
-  /* ----- HERO ----- */
-  .hero { margin-bottom: 4rem; }
-
-  .kicker {
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 500;
-    margin: 0 0 1.4rem;
-  }
-  .kicker::before { content: '— '; }
-
-  h1.name {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(3rem, 8vw, 5.6rem);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.6rem;
-    color: var(--ink);
-  }
-  h1.name .alt {
-    display: block;
-    font-size: 0.42em;
-    font-style: italic;
-    color: var(--muted);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    margin-top: 0.4rem;
-  }
-
-  .byline {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--ink-2);
-    margin: 0.4rem 0 2rem;
-    line-height: 1.5;
-  }
-  .byline .accent {
-    font-style: normal;
-    font-weight: 500;
-    color: var(--accent);
-  }
-
-  .hero-rule {
-    border: 0;
-    border-top: 1px solid var(--rule);
-    margin: 2rem 0 2.5rem;
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max);
     width: 100%;
   }
-
-  .lede {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--ink-2);
-    margin: 0 0 1.4rem;
-  }
-  .lede::first-letter {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 4.4em;
-    float: left;
-    line-height: 0.85;
-    margin: 0.1em 0.08em -0.05em 0;
-    color: var(--accent);
-  }
-
-  /* ----- SECTION HEADINGS ----- */
-  section { margin: 4rem 0; }
-  section:first-of-type { margin-top: 3rem; }
-
-  h2 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.55rem;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
-    color: var(--ink);
-    margin: 0 0 1.6rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid var(--rule);
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-  }
-  h2 .num {
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    flex-shrink: 0;
-    padding-top: 0.15rem;
-  }
-
-  p { margin: 0 0 1.2rem; }
-  p strong { font-weight: 500; color: var(--ink); }
-
-  /* ----- TRACKS ----- */
-  .tracks p strong {
-    font-weight: 500;
-    color: var(--ink);
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 1px;
-  }
-
-  /* ----- WORK ITEMS ----- */
-  .work-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    counter-reset: work;
-  }
-  .work-list > li {
-    position: relative;
-    padding: 1.2rem 0 1.2rem 3rem;
-    border-bottom: 1px solid var(--rule);
-    counter-increment: work;
-  }
-  .work-list > li:last-child { border-bottom: 0; }
-  .work-list > li::before {
-    content: counter(work, decimal-leading-zero);
-    position: absolute;
-    left: 0;
-    top: 1.4rem;
-    font-family: var(--sans);
+  .meta {
+    font-family: var(--font-mono);
     font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--accent);
+    color: var(--muted);
+    margin: 0 0 2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .meta::before { content: '› '; color: var(--accent); }
+  h1.name {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  h1.name .alt {
+    color: var(--muted);
+    font-size: 0.55em;
+    margin-left: 0.6em;
+    font-weight: 400;
     letter-spacing: 0.05em;
   }
-  .work-list h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin: 0 0 0.3rem;
-    color: var(--ink);
+  .titles {
+    font-family: var(--font-mono);
+    font-size: clamp(0.875rem, 1.4vw, 1rem);
+    color: var(--muted);
+    margin: 0 0 1.6rem;
   }
-  .work-list h3 .zh { color: var(--ink); }
-  .work-list .work-status {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
+  .titles .accent { color: var(--accent); }
+  .bio {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    line-height: 1.65;
+    margin: 0 0 2.2rem;
+    max-width: 36em;
+    color: oklch(0.88 0.01 240);
+  }
+  .caret::after {
+    content: '▍';
     color: var(--accent);
-    font-weight: 600;
-    margin-left: 0.6rem;
+    margin-left: 1px;
+    animation: blink 1.05s steps(1, end) infinite;
   }
-  .work-list p {
-    margin: 0.4rem 0 0.5rem;
+  @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+  /* Chat */
+  .chat {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: oklch(0.14 0.005 240 / 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .chat:focus-within {
+    border-color: rgb(var(--accent-rgb) / 0.6);
+    box-shadow: 0 0 0 1px rgb(var(--accent-rgb) / 0.4),
+                0 0 40px -8px rgb(var(--accent-rgb) / 0.5);
+  }
+  .chat-prefix {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    padding: 0 0.4rem 0 1.05rem;
+    user-select: none;
     font-size: 1rem;
-    line-height: 1.6;
-    color: var(--ink-2);
   }
-  .work-list .meta-row {
-    font-family: var(--sans);
-    font-size: 0.72rem;
+  .chat input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    padding: 0.95rem 0;
+    color: var(--fg);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    outline: 0;
+    min-width: 0;
+  }
+  .chat input::placeholder { color: var(--muted); }
+  .chat button {
+    background: transparent;
+    border: 0;
     color: var(--muted);
-    letter-spacing: 0.04em;
-    margin-top: 0.3rem;
+    font-family: var(--font-mono);
+    padding: 0 1.1rem;
+    cursor: pointer;
+    transition: color 150ms ease, transform 150ms ease;
+    font-size: 0.95rem;
   }
-  .work-list .meta-row span + span::before {
-    content: ' · ';
-    color: var(--rule);
+  .chat button:hover { color: var(--accent); transform: translateX(2px); }
+  .chat-shell-note {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin: 0.6rem 0 0;
+    opacity: 0.6;
+    letter-spacing: 0.02em;
   }
-  .work-list .work-link {
-    font-family: var(--sans);
-    font-size: 0.78rem;
-    font-style: italic;
+  .chat-output {
+    margin-top: 1.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: oklch(0.78 0.01 240);
+    line-height: 1.7;
+    padding: 0.9rem 1rem;
+    border-left: 1px solid rgb(var(--accent-rgb) / 0.4);
+    background: oklch(0.14 0.005 240 / 0.3);
+    border-radius: 0 6px 6px 0;
+  }
+  .chat-output .q { color: var(--fg); display: block; margin-bottom: 0.5rem; }
+  .chat-output .q::before { content: '› '; color: var(--accent); }
+  .chat-output .a::before {
+    content: '◂ eduxplore: ';
+    color: var(--accent);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+  .scroll-cue {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+    z-index: 1;
+  }
+  .scroll-cue::after {
+    content: ' ↓';
+    display: inline-block;
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50%      { transform: translateY(4px); opacity: 1; }
   }
 
-  /* Flagship treatment for 彰基 */
-  .work-list > li.flagship {
-    background: linear-gradient(180deg, rgba(123, 31, 37, 0.04), transparent 80%);
-    margin: 0 -1rem;
-    padding-left: 4rem;
-    padding-right: 1rem;
+  /* ---------- SHARED SECTION ---------- */
+  section {
+    padding: clamp(4rem, 9vw, 7rem) var(--gutter);
+    border-top: 1px solid var(--border);
+    position: relative;
   }
-  .work-list > li.flagship::before { left: 1rem; }
-  .work-list > li.flagship h3::after {
-    content: '— Flagship';
-    font-family: var(--sans);
-    font-size: 0.65rem;
+  .section-inner { max-width: var(--max); margin: 0 auto; }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-    margin-left: 0.7rem;
-    vertical-align: 0.15em;
+    margin: 0 0 1rem;
   }
-
-  /* ----- PUBLICATIONS ----- */
-  .bib {
-    list-style: none;
-    counter-reset: bib;
-    padding: 0;
-    margin: 0;
-  }
-  .bib li {
-    counter-increment: bib;
-    padding: 0.7rem 0 0.7rem 2.4rem;
-    position: relative;
-    border-bottom: 1px solid var(--rule);
-  }
-  .bib li:last-child { border-bottom: 0; }
-  .bib li::before {
-    content: '[' counter(bib) ']';
-    position: absolute;
-    left: 0;
-    top: 0.7rem;
-    font-family: var(--sans);
-    font-size: 0.78rem;
+  .section-label::before { content: '◇ '; }
+  h2 {
+    font-family: var(--font-mono);
     font-weight: 500;
-    color: var(--accent);
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin: 0 0 1.6rem;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
   }
-  .bib .pub-title {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.02rem;
-    line-height: 1.45;
-    color: var(--ink);
-  }
-  .bib .pub-venue {
-    font-style: italic;
-    color: var(--ink-2);
-    font-size: 0.95rem;
-  }
-  .bib .pub-meta {
-    display: block;
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    margin-top: 0.2rem;
+  .lead {
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    line-height: 1.65;
+    max-width: 38em;
+    color: oklch(0.85 0.01 240);
+    margin: 0 0 2.5rem;
   }
 
-  .scholar-aside {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin: 0 0 1.4rem;
-  }
-
-  /* ----- COLOPHON ----- */
-  .colophon {
-    margin-top: 5rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid var(--ink);
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    line-height: 1.8;
-    color: var(--ink-2);
-  }
-  .colophon-grid {
+  /* ---------- IDENTITY ---------- */
+  .identity-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.4rem 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
-  .colophon-grid h4 {
-    font-family: var(--sans);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
+  .identity-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem 1.3rem;
+    background: oklch(0.14 0.005 240 / 0.4);
+    transition: border-color 200ms ease;
+  }
+  .identity-card:hover { border-color: rgb(var(--accent-rgb) / 0.45); }
+  .identity-card .role {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.4rem;
   }
-  .colophon-grid ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .identity-card .role-name {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin: 0 0 0.3rem;
   }
-  .colophon-grid ul a {
-    color: var(--ink-2);
-    border-bottom-color: var(--rule);
-  }
-  .colophon-grid ul a:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-
-  .set-in {
-    font-family: var(--serif);
-    font-style: italic;
+  .identity-card .role-detail {
     font-size: 0.85rem;
     color: var(--muted);
-    border-top: 1px solid var(--rule);
-    padding-top: 1rem;
-    margin: 1.5rem 0 0;
-    line-height: 1.6;
-  }
-  .set-in code {
-    font-family: 'Inter', monospace;
-    font-style: normal;
-    font-size: 0.78rem;
-    background: var(--paper-2);
-    padding: 0.05rem 0.35rem;
-    border-radius: 3px;
-    color: var(--ink-2);
+    line-height: 1.5;
+    margin: 0;
   }
 
-  /* responsive tightening */
-  @media (max-width: 480px) {
-    body { font-size: 17px; }
-    .lede::first-letter { font-size: 3.6em; }
-    h2 { flex-direction: column; gap: 0.3rem; }
-    .work-list > li { padding-left: 2.6rem; }
-    .work-list > li.flagship { padding-left: 3.4rem; }
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .service-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.4rem;
+    background: oklch(0.14 0.005 240 / 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: border-color 200ms ease, transform 200ms ease;
+  }
+  .service-card:hover {
+    border-color: rgb(var(--accent-rgb) / 0.5);
+    transform: translateY(-2px);
+  }
+  .service-card .status {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .service-card .status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  .service-card .status.research::before {
+    background: oklch(0.78 0.13 80);
+    box-shadow: 0 0 6px oklch(0.78 0.13 80);
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .service-card h3 {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .service-card .desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: oklch(0.82 0.01 240);
+    margin: 0;
+  }
+  .service-card .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+  .service-card .tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.15rem 0.5rem;
+  }
+  .service-card .external {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    margin-top: 0.6rem;
+  }
+  .service-card .external::before { content: '↗ '; color: var(--accent); }
+  .service-card.flagship {
+    background: linear-gradient(135deg, oklch(0.16 0.03 175 / 0.5), oklch(0.14 0.005 240 / 0.4));
+    border-color: rgb(var(--accent-rgb) / 0.35);
+  }
+  .service-card.flagship .flagship-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+  }
+  .pub-list li {
+    border-bottom: 1px solid var(--border);
+    padding: 1.1rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.2rem;
+  }
+  .pub-list li:last-child { border-bottom: 0; }
+  .pub-year {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-top: 0.05rem;
+  }
+  .pub-body { display: flex; flex-direction: column; gap: 0.3rem; }
+  .pub-title {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--fg);
+  }
+  .pub-venue {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+  }
+  .pub-meta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+  .profile-links a {
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    color: var(--muted);
+  }
+  .profile-links a:hover {
+    color: var(--accent);
+    border-color: rgb(var(--accent-rgb) / 0.4);
+    text-decoration: none;
+  }
+
+  /* ---------- LAB / CONTACT FOOTER ---------- */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .footer-block h3 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 0 0 0.8rem;
+  }
+  .footer-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 2;
+  }
+  .footer-block ul a { color: oklch(0.85 0.01 240); }
+  .footer-block ul a:hover { color: var(--accent); text-decoration: none; }
+  .colophon {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 </style>
 </head>
 
 <body>
+
+<noscript>
+  <style>.caret::after { content: ''; animation: none; }</style>
+</noscript>
+
 <main>
 
-  <!-- =========== MASTHEAD =========== -->
-  <header class="masthead">
-    <span class="title">Yao-Chung Fan · Profile</span>
-    <span class="date">National Chung Hsing University · 2026</span>
-  </header>
-
   <!-- =========== HERO =========== -->
-  <article class="hero" id="top">
-    <p class="kicker">A Profile</p>
-    <h1 class="name">
-      Yao-Chung Fan
-      <span class="alt">范耀中</span>
-    </h1>
-    <p class="byline">
-      <span class="accent">Vice Provost</span> · Full Professor of Computer Science · Director, NCHU Natural Language Processing Laboratory
-    </p>
-    <hr class="hero-rule">
-    <p class="lede">
-      A computer scientist at National Chung Hsing University, where he leads the NLP Laboratory and serves as Vice Provost of Academic Affairs. His work moves between basic research in language generation and the deployment of agentic AI systems serving students, hospital partners, and Indigenous-language communities.
-    </p>
-  </article>
+  <header class="hero" id="top">
+    <canvas id="bg" aria-hidden="true"></canvas>
 
-  <!-- =========== I. THREE TRACKS =========== -->
-  <section id="identity" class="tracks" aria-labelledby="identity-h">
-    <h2 id="identity-h"><span class="num">I.</span> Three Tracks</h2>
-    <p>
-      In a typical week he attends to three concurrent obligations.
-      <strong>As Vice Provost,</strong> he participates in the governance of NCHU's Office of Academic Affairs.
-      <strong>As a full professor,</strong> he teaches and publishes on natural language generation, retrieval-augmented generation, and agentic AI.
-      <strong>As director of the NCHU NLP Laboratory,</strong> he oversees the deployment of production systems used across campus and beyond.
-    </p>
-    <p>
-      The arrangement is deliberate. Research without deployment risks irrelevance; deployment without research risks superficiality; neither survives long without institutional standing.
-    </p>
-  </section>
+    <div class="hero-content">
+      <p class="meta" data-stream>nchu.cs / nlp lab / 2026</p>
+      <h1 class="name" data-stream data-html='Yao-Chung Fan <span class="alt">范耀中</span>'>
+        Yao-Chung Fan 范耀中
+      </h1>
+      <p class="titles" data-stream data-html='中興大學資工系 教授 · <span class="accent">副教務長</span> · NLP Lab 主持人'>
+        中興大學資工系 教授 · 副教務長 · NLP Lab 主持人
+      </p>
+      <p class="bio" data-stream>
+        打造能讀、能推理、能落地的 agentic AI 系統 — 從全校 AI 學伴到跨機構部署，再到低資源語言對話。
+      </p>
 
-  <!-- =========== II. WORK IN PRODUCTION =========== -->
-  <section id="services" aria-labelledby="services-h">
-    <h2 id="services-h"><span class="num">II.</span> The Lab's Work, in Production</h2>
-    <p>
-      The NCHU NLP Laboratory operates a family of deployed systems — not prototypes but live services running for actual users on and beyond campus.
-    </p>
-
-    <ol class="work-list">
-
-      <li id="service-eduxplore">
-        <h3>AI 興學伴 <span class="work-status">Live</span></h3>
-        <p>
-          A campus-wide learning advisor that integrates NCHU's institutional information — course search, faculty lookup, learning resources — into a single conversational interface. Positioned as the university's LearningHub.
-        </p>
-        <p class="meta-row">
-          <span>Audience: NCHU students &amp; faculty</span>
-          <span>LLM · RAG · Campus integration</span>
-        </p>
-        <p class="work-link"><a href="https://eduxplore.nlpnchu.org/" target="_blank" rel="noopener">eduxplore.nlpnchu.org</a></p>
-      </li>
-
-      <li id="service-shennong-taide">
-        <h3>神農 TAIDE <span class="work-status">Live</span></h3>
-        <p>
-          A retrieval-augmented generation system built on top of TAIDE, the Taiwan-developed traditional-Chinese large language model.
-        </p>
-        <p class="meta-row">
-          <span>TAIDE · RAG</span>
-        </p>
-      </li>
-
-      <li id="service-fact-checking">
-        <h3>Fact-Checking System <span class="work-status">Live</span></h3>
-        <p>
-          An end-to-end fact verification architecture using Anthropic Claude and the Model Context Protocol (MCP) to coordinate retrieval, evidence checking, and verdict generation.
-        </p>
-        <p class="meta-row">
-          <span>Claude API · MCP · Agent</span>
-        </p>
-      </li>
-
-      <li id="service-cch" class="flagship">
-        <h3>Changhua Christian Hospital Consultation <span class="work-status">Live</span></h3>
-        <p>
-          A smart question-answering system for hospital visiting rules and policies, deployed in partnership with Changhua Christian Hospital. The laboratory's first major cross-institution deployment, demonstrating that research-to-production can extend beyond university boundaries.
-        </p>
-        <p class="meta-row">
-          <span>Healthcare</span>
-          <span>RAG</span>
-          <span>Cross-institution</span>
-        </p>
-      </li>
-
-      <li id="service-amis">
-        <h3>Amis (阿美族語) Dialogue System <span class="work-status">Research / Deployed</span></h3>
-        <p>
-          A combined large language model and speech-recognition system for Amis, a low-resource Indigenous Taiwanese language. The system supports preservation, education, and accessibility for Amis-speaking communities.
-        </p>
-        <p class="meta-row">
-          <span>LLM · ASR · Indigenous Language · Low-resource</span>
-        </p>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- =========== III. PUBLICATIONS =========== -->
-  <section id="publications" aria-labelledby="publications-h">
-    <h2 id="publications-h"><span class="num">III.</span> Selected Papers</h2>
-    <p class="scholar-aside">
-      A short list, restricted to 2024 and 2025. The complete bibliography is maintained at
-      <a href="https://dblp.org/pers/hd/f/Fan:Yao=Chung" target="_blank" rel="noopener">DBLP</a>
-      and <a href="https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
-      ORCID: <a href="https://orcid.org/0000-0002-6894-015X" target="_blank" rel="noopener">0000-0002-6894-015X</a>.
-    </p>
-
-    <ol class="bib">
-
-      <li id="paper-acl2025-table-rqg">
-        <span class="pub-title">Improving Table Retrieval through Question Generation from Partial Tables.</span>
-        <em class="pub-venue">ACL 2025.</em>
-        <span class="pub-meta">2025</span>
-      </li>
-
-      <li id="paper-www2025-gain">
-        <span class="pub-title">GAIN: Gradual Adaptation for Continual Learning in Low-resource Environments.</span>
-        <em class="pub-venue">The Web Conference 2025 (WWW '25).</em>
-        <span class="pub-meta">2025</span>
-      </li>
-
-      <li id="paper-acl2024-distractor">
-        <span class="pub-title">Enhancing Distractor Generation for Multiple-Choice Questions.</span>
-        <em class="pub-venue">Findings of ACL 2024.</em>
-        <span class="pub-meta">2024</span>
-      </li>
-
-      <li id="paper-taslp2024-handover">
-        <span class="pub-title">Handover QG: Question Generation by Decoder Fusion and Reinforcement Learning.</span>
-        <em class="pub-venue">IEEE/ACM Transactions on Audio, Speech and Language Processing.</em>
-        <span class="pub-meta">2024</span>
-      </li>
-
-      <li id="paper-tlt2024-eqgg">
-        <span class="pub-title">EQGG: Automatic Question Group Generation.</span>
-        <em class="pub-venue">IEEE Transactions on Learning Technologies.</em>
-        <span class="pub-meta">2024</span>
-      </li>
-
-      <li id="paper-tallip2024-xphishing">
-        <span class="pub-title">X-Phishing-Writer: A Framework for Cross-lingual Phishing E-mail Generation.</span>
-        <em class="pub-venue">ACM Transactions on Asian and Low-Resource Language Information Processing (TALLIP).</em>
-        <span class="pub-meta">2024</span>
-      </li>
-
-    </ol>
-  </section>
-
-  <!-- =========== IV. COLOPHON =========== -->
-  <section id="lab" class="colophon" aria-labelledby="lab-h">
-    <h2 id="lab-h"><span class="num">IV.</span> Colophon</h2>
-
-    <div class="colophon-grid">
-      <div>
-        <h4>Office</h4>
-        <ul>
-          <li>Science Building, Room 704</li>
-          <li>National Chung Hsing University</li>
-          <li>Taichung, Taiwan</li>
-          <li><a href="mailto:yfan@nchu.edu.tw">yfan@nchu.edu.tw</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Lab</h4>
-        <ul>
-          <li><a href="https://nlpnchu.org/">NCHU NLP Lab</a></li>
-          <li><a href="https://github.com/NCHU-NLP-Lab">GitHub: NCHU-NLP-Lab</a></li>
-          <li><a href="https://github.com/UDICatNCHU">GitHub: UDICatNCHU</a></li>
-          <li><a href="https://huggingface.co/NchuNLP">Hugging Face: NchuNLP</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Profiles</h4>
-        <ul>
-          <li><a href="https://orcid.org/0000-0002-6894-015X">ORCID</a></li>
-          <li><a href="https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en">Google Scholar</a></li>
-          <li><a href="https://dblp.org/pers/hd/f/Fan:Yao=Chung">DBLP</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>For Machines</h4>
-        <ul>
-          <li><a href="/llms.txt">/llms.txt</a></li>
-          <li><a href="/about.md">/about.md</a></li>
-          <li><a href="/publications.md">/publications.md</a></li>
-          <li><a href="/services.md">/services.md</a></li>
-          <li><a href="/sitemap.xml">/sitemap.xml</a></li>
-        </ul>
-      </div>
+      <form class="chat" autocomplete="off" id="chat">
+        <span class="chat-prefix" aria-hidden="true">›</span>
+        <input id="chat-input" placeholder="問我關於范老師的研究、課程、論文…" aria-label="Ask Professor Fan">
+        <button type="submit" aria-label="送出">↵</button>
+      </form>
+      <p class="chat-shell-note">UI shell · eduxplore backend coming soon</p>
+      <div class="chat-output" id="chat-output" hidden></div>
     </div>
 
-    <p class="set-in">
-      Set in <em>Spectral</em> with <em>Inter</em> for incidentals. Hand-coded, statically served. Designed to be read by people first and by machines second; structured data is embedded for the latter at <code>application/ld+json</code>.
-    </p>
+    <a href="#identity" class="scroll-cue" aria-label="Scroll to next section">scroll</a>
+  </header>
+
+  <!-- =========== IDENTITY =========== -->
+  <section id="identity" aria-labelledby="identity-h">
+    <div class="section-inner">
+      <p class="section-label">Identity</p>
+      <h2 id="identity-h">三軌身份 — 治理 · 研究 · 落地</h2>
+      <p class="lead">
+        從教務行政到實驗室主持，從基礎研究到產品部署。三條軌道同時運行，讓研究不只停留在 paper，能真實服務全校與跨機構。
+      </p>
+
+      <div class="identity-grid">
+        <div class="identity-card">
+          <p class="role">Governance</p>
+          <p class="role-name">副教務長</p>
+          <p class="role-detail">National Chung Hsing University, Office of Academic Affairs</p>
+        </div>
+        <div class="identity-card">
+          <p class="role">Research</p>
+          <p class="role-name">Full Professor</p>
+          <p class="role-detail">Department of Computer Science, NCHU</p>
+        </div>
+        <div class="identity-card">
+          <p class="role">Production</p>
+          <p class="role-name">Director, NCHU NLP Lab</p>
+          <p class="role-detail"><a href="https://nlpnchu.org/">nlpnchu.org</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== DEPLOYED SERVICES =========== -->
+  <section id="services" aria-labelledby="services-h">
+    <div class="section-inner">
+      <p class="section-label">Deployed Services</p>
+      <h2 id="services-h">已上線 AI 服務家族</h2>
+      <p class="lead">
+        從研究到部署的完整鏈路：實驗室產出的不只是論文，是真實服務全校學生、合作醫院與原住民語言社群的系統。
+      </p>
+
+      <div class="services-grid">
+
+        <article class="service-card" id="service-eduxplore">
+          <span class="status">Live</span>
+          <h3>AI 興學伴</h3>
+          <p class="desc">中興大學校園學伴 — 整合課程查詢、師資查詢、校務資訊，定位為 LearningHub。</p>
+          <div class="stack">
+            <span class="tag">LLM</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Campus Integration</span>
+          </div>
+          <a class="external" href="https://eduxplore.nlpnchu.org/" target="_blank" rel="noopener">eduxplore.nlpnchu.org</a>
+        </article>
+
+        <article class="service-card" id="service-shennong-taide">
+          <span class="status">Live</span>
+          <h3>神農 TAIDE</h3>
+          <p class="desc">基於 TAIDE（台灣本土 LLM）的 Retrieval-Augmented Generation 架構。</p>
+          <div class="stack">
+            <span class="tag">TAIDE</span>
+            <span class="tag">RAG</span>
+          </div>
+        </article>
+
+        <article class="service-card" id="service-fact-checking">
+          <span class="status">Live</span>
+          <h3>事實查核系統</h3>
+          <p class="desc">採用 Anthropic Claude API 與 Model Context Protocol (MCP) 協調 retrieval、證據檢驗、判決生成的端對端事實查核架構。</p>
+          <div class="stack">
+            <span class="tag">Claude API</span>
+            <span class="tag">MCP</span>
+            <span class="tag">Agent</span>
+          </div>
+        </article>
+
+        <article class="service-card flagship" id="service-cch">
+          <p class="flagship-tag">Cross-institution Flagship</p>
+          <span class="status">Live</span>
+          <h3>彰化基督教醫院諮詢系統</h3>
+          <p class="desc">與彰化基督教醫院合作部署的入館規則智慧問答系統 — 實驗室從校內走向跨機構落地的代表作。</p>
+          <div class="stack">
+            <span class="tag">Healthcare</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Cross-Institution</span>
+          </div>
+        </article>
+
+        <article class="service-card" id="service-amis">
+          <span class="status research">Research / Deployed</span>
+          <h3>阿美族語對話系統</h3>
+          <p class="desc">結合 LLM 與語音辨識的低資源語言對話系統，支援原住民語言保存、教學與可及性應用。</p>
+          <div class="stack">
+            <span class="tag">LLM</span>
+            <span class="tag">ASR</span>
+            <span class="tag">Indigenous Lang.</span>
+            <span class="tag">Low-Resource</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== PUBLICATIONS =========== -->
+  <section id="publications" aria-labelledby="publications-h">
+    <div class="section-inner">
+      <p class="section-label">Publications</p>
+      <h2 id="publications-h">代表性論文 (2024–2025)</h2>
+      <p class="lead">
+        近期工作聚焦於問題生成、檢索增強、持續學習、跨語言生成與教育科技 LLM 應用。完整清單請見 DBLP / Google Scholar。
+      </p>
+
+      <div class="profile-links">
+        <a href="https://orcid.org/0000-0002-6894-015X" target="_blank" rel="noopener">ORCID 0000-0002-6894-015X</a>
+        <a href="https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://dblp.org/pers/hd/f/Fan:Yao=Chung" target="_blank" rel="noopener">DBLP</a>
+      </div>
+
+      <ol class="pub-list">
+        <li id="paper-acl2025-table-rqg">
+          <span class="pub-year">2025</span>
+          <div class="pub-body">
+            <span class="pub-title">Improving Table Retrieval through Question Generation from Partial Tables</span>
+            <span class="pub-venue">ACL 2025</span>
+          </div>
+        </li>
+        <li id="paper-www2025-gain">
+          <span class="pub-year">2025</span>
+          <div class="pub-body">
+            <span class="pub-title">GAIN: Gradual Adaptation for Continual Learning in Low-resource Environments</span>
+            <span class="pub-venue">The Web Conference 2025 (WWW '25)</span>
+          </div>
+        </li>
+        <li id="paper-acl2024-distractor">
+          <span class="pub-year">2024</span>
+          <div class="pub-body">
+            <span class="pub-title">Enhancing Distractor Generation for Multiple-Choice Questions</span>
+            <span class="pub-venue">Findings of ACL 2024</span>
+          </div>
+        </li>
+        <li id="paper-taslp2024-handover">
+          <span class="pub-year">2024</span>
+          <div class="pub-body">
+            <span class="pub-title">Handover QG: Question Generation by Decoder Fusion and Reinforcement Learning</span>
+            <span class="pub-venue">IEEE/ACM Transactions on Audio, Speech and Language Processing</span>
+          </div>
+        </li>
+        <li id="paper-tlt2024-eqgg">
+          <span class="pub-year">2024</span>
+          <div class="pub-body">
+            <span class="pub-title">EQGG: Automatic Question Group Generation</span>
+            <span class="pub-venue">IEEE Transactions on Learning Technologies</span>
+          </div>
+        </li>
+        <li id="paper-tallip2024-xphishing">
+          <span class="pub-year">2024</span>
+          <div class="pub-body">
+            <span class="pub-title">X-Phishing-Writer: A Framework for Cross-lingual Phishing E-mail Generation</span>
+            <span class="pub-venue">ACM TALLIP</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- =========== LAB / CONTACT =========== -->
+  <section id="lab" aria-labelledby="lab-h">
+    <div class="section-inner">
+      <p class="section-label">Lab & Contact</p>
+      <h2 id="lab-h">實驗室與聯絡</h2>
+
+      <div class="footer-grid">
+        <div class="footer-block">
+          <h3>Lab</h3>
+          <ul>
+            <li><a href="https://nlpnchu.org/">NCHU NLP Lab</a></li>
+            <li><a href="https://github.com/NCHU-NLP-Lab">GitHub: NCHU-NLP-Lab</a></li>
+            <li><a href="https://github.com/UDICatNCHU">GitHub: UDICatNCHU</a></li>
+            <li><a href="https://huggingface.co/NchuNLP">Hugging Face: NchuNLP</a></li>
+          </ul>
+        </div>
+        <div class="footer-block">
+          <h3>Profiles</h3>
+          <ul>
+            <li><a href="https://orcid.org/0000-0002-6894-015X">ORCID</a></li>
+            <li><a href="https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en">Google Scholar</a></li>
+            <li><a href="https://dblp.org/pers/hd/f/Fan:Yao=Chung">DBLP</a></li>
+          </ul>
+        </div>
+        <div class="footer-block">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:yfan@nchu.edu.tw">yfan@nchu.edu.tw</a></li>
+            <li>Science Building 704</li>
+            <li>NCHU, Taichung, Taiwan</li>
+          </ul>
+        </div>
+        <div class="footer-block">
+          <h3>For Machines</h3>
+          <ul>
+            <li><a href="/llms.txt">/llms.txt</a></li>
+            <li><a href="/about.md">/about.md</a></li>
+            <li><a href="/publications.md">/publications.md</a></li>
+            <li><a href="/services.md">/services.md</a></li>
+            <li><a href="/sitemap.xml">/sitemap.xml</a></li>
+            <li><a href="/robots.txt">/robots.txt</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="colophon">
+        <span>© 2026 Yao-Chung Fan · 范耀中</span>
+        <span>Built static · Lighthouse-friendly · LLMO-ready</span>
+      </p>
+    </div>
   </section>
 
 </main>
+
+<script type="module">
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function streamText(el, text, opts = {}) {
+    const { minDelay = 14, maxDelay = 42, startDelay = 0 } = opts;
+    return new Promise(resolve => {
+      el.textContent = '';
+      el.classList.add('caret');
+      if (reduce) {
+        el.textContent = text;
+        el.classList.remove('caret');
+        resolve();
+        return;
+      }
+      let i = 0;
+      const tick = () => {
+        if (i >= text.length) {
+          el.classList.remove('caret');
+          resolve();
+          return;
+        }
+        el.textContent += text[i++];
+        setTimeout(tick, Math.random() * (maxDelay - minDelay) + minDelay);
+      };
+      setTimeout(tick, startDelay);
+    });
+  }
+
+  async function bootStream() {
+    const els = [...document.querySelectorAll('[data-stream]')];
+    // Capture original DOM (in case fonts/SSR already filled it) THEN clear and re-stream.
+    // Crawlers without JS see the original text in HTML — DOM-first, JS-enhance.
+    const items = els.map(el => ({
+      el,
+      html: el.dataset.html ?? el.innerHTML,
+      text: el.textContent.trim(),
+    }));
+    items.forEach(({ el }) => { el.textContent = ''; });
+
+    let delay = 250;
+    for (const item of items) {
+      await streamText(item.el, item.text, { startDelay: delay });
+      if (item.html !== item.text) item.el.innerHTML = item.html;
+      delay = 60;
+    }
+  }
+
+  function bootBackground() {
+    const canvas = document.getElementById('bg');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr, points;
+    const N = 80;
+    const LINK = 140;
+    const ACCENT = '86 220 200';
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function init() {
+      resize();
+      points = Array.from({ length: N }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+      }));
+    }
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const a = points[i], b = points[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < LINK * LINK) {
+            const d = Math.sqrt(d2);
+            const alpha = (1 - d / LINK) * 0.18;
+            ctx.strokeStyle = `rgb(${ACCENT} / ${alpha})`;
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (const p of points) {
+        ctx.fillStyle = `rgb(${ACCENT} / 0.65)`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 1.3, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
+        if (p.y < -10) p.y = h + 10;
+        if (p.y > h + 10) p.y = -10;
+      }
+      if (!reduce) requestAnimationFrame(draw);
+    }
+    init();
+    window.addEventListener('resize', init);
+    if (reduce) draw(); else requestAnimationFrame(draw);
+  }
+
+  function bootChat() {
+    const form = document.getElementById('chat');
+    if (!form) return;
+    const input = document.getElementById('chat-input');
+    const out = document.getElementById('chat-output');
+
+    const cannedReplies = [
+      'UI shell here — eduxplore 後端尚未串接。實際的興學伴系統可在 eduxplore.nlpnchu.org 體驗。',
+      '這是 UI 原型，目前僅供視覺氣質確認。後續會接上 AI 興學伴 API。',
+    ];
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (!q) return;
+      out.hidden = false;
+      out.innerHTML = `<span class="q">${escapeHtml(q)}</span><span class="a" id="answer"></span>`;
+      const ans = document.getElementById('answer');
+      const reply = cannedReplies[Math.floor(Math.random() * cannedReplies.length)];
+      await new Promise(r => setTimeout(r, 280));
+      await streamText(ans, reply, { minDelay: 10, maxDelay: 32 });
+    });
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+    }[c]));
+  }
+
+  bootBackground();
+  bootStream();
+  bootChat();
+</script>
+
 </body>
 </html>
