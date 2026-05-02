@@ -202,6 +202,8 @@ async def chat(body: ChatReq, request: Request) -> StreamingResponse:
     if not _rate_check(ip):
         raise HTTPException(status_code=429, detail="rate limit exceeded")
 
+    log.info("Q ip=%s q=%s", ip, body.q)
+
     async def stream() -> AsyncIterator[str]:
         try:
             async with client.messages.stream(
