@@ -1255,6 +1255,10 @@
     if (reduce) draw(); else requestAnimationFrame(draw);
   }
 
+  // QA backend: paste your Cloud Run URL after `gcloud run deploy` finishes.
+  // Empty string → fall back to canned replies (useful for offline preview).
+  const QA_API_URL = '';
+
   function bootChat() {
     const form = document.getElementById('chat');
     if (!form) return;
@@ -1262,9 +1266,59 @@
     const out = document.getElementById('chat-output');
 
     const cannedReplies = [
-      'UI shell here — eduxplore 後端尚未串接。實際的興學伴系統可在 eduxplore.nlpnchu.org 體驗。',
-      '這是 UI 原型，目前僅供視覺氣質確認。後續會接上 AI 興學伴 API。',
+      'UI shell — QA 後端尚未串接（QA_API_URL 為空）。部署 backend/ 到 Cloud Run 後，把網址填到本檔的 QA_API_URL 即可啟用真實問答。',
     ];
+
+    async function fakeReply(ans) {
+      const reply = cannedReplies[Math.floor(Math.random() * cannedReplies.length)];
+      await new Promise(r => setTimeout(r, 280));
+      await streamText(ans, reply, { minDelay: 10, maxDelay: 32 });
+    }
+
+    async function realReply(ans, q) {
+      let res;
+      try {
+        res = await fetch(QA_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ q }),
+        });
+      } catch (err) {
+        ans.textContent = `[network] ${err.message}`;
+        return;
+      }
+      if (!res.ok) {
+        const t = await res.text().catch(() => '');
+        ans.textContent = `[${res.status}] ${t || res.statusText}`;
+        return;
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+      ans.classList.add('caret');
+      try {
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          buf += decoder.decode(value, { stream: true });
+          const events = buf.split('\n\n');
+          buf = events.pop() ?? '';
+          for (const ev of events) {
+            if (!ev.startsWith('data: ')) continue;
+            const payload = ev.slice(6);
+            if (payload === '[DONE]') { ans.classList.remove('caret'); return; }
+            try {
+              const d = JSON.parse(payload);
+              if (d.t)     ans.textContent += d.t;
+              if (d.error) ans.textContent += `\n[error] ${d.error}`;
+            } catch { /* skip malformed line */ }
+          }
+        }
+      } finally {
+        ans.classList.remove('caret');
+      }
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1273,9 +1327,11 @@
       out.hidden = false;
       out.innerHTML = `<span class="q">${escapeHtml(q)}</span><span class="a" id="answer"></span>`;
       const ans = document.getElementById('answer');
-      const reply = cannedReplies[Math.floor(Math.random() * cannedReplies.length)];
-      await new Promise(r => setTimeout(r, 280));
-      await streamText(ans, reply, { minDelay: 10, maxDelay: 32 });
+      if (QA_API_URL) {
+        await realReply(ans, q);
+      } else {
+        await fakeReply(ans);
+      }
     });
   }
 
