@@ -123,6 +123,9 @@ preloader gif、`jquery-1.10.2`、Owl Carousel、文字旋轉外掛、舊式時�
 - [x] 副教務長身份納入 Identity 規劃
 - [x] SDG Explore 確認移除
 - [x] Hero 聊天框策略確定：先做 UI 殼層
-- [ ] 范老師回覆第七節剩餘待確認事項
-- [ ] Hero 原型實作（進行中 → `prototype/hero.html`）
-- [ ] 全站實作
+- [x] Hero 原型實作（`prototype/hero.html`）
+- [x] 三變體迭代（v-glow / v-warm / v-light），最終選定 **v-warm**
+- [x] QA 後端實作 + 部署 Cloud Run（`backend/`，2026-05-02 上線於 asia-east1）
+- [x] 全站實作 — v-warm 變體於 2026-05-02 升為正式版根 `index.html`，
+      舊 SquareRoot 模板 / 老 asset / `prototype/` 目錄全數清除
+- [ ] 范老師回覆第七節剩餘待確認事項（不影響上線；之後依回覆微調文案 / 服務名 / 行政身份露出）
