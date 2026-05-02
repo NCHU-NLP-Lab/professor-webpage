@@ -1,0 +1,31 @@
+# Yao-Chung Fan (范耀中)
+
+> Full Professor at the Department of Computer Science, National Chung Hsing University (NCHU), Taiwan. Vice Provost (副教務長). Director of the NCHU NLP Laboratory. Research focus: Natural Language Generation, Agentic AI, Educational Technology with LLMs, Machine Reading Comprehension, and low-resource (Indigenous Taiwanese) language dialogue.
+
+Yao-Chung Fan leads research and deployment of production AI systems serving NCHU students, hospital partners, and Indigenous-language communities. Flagship deployments include AI 興學伴 (eduxplore) — a campus-wide learning advisor — 神農 TAIDE (RAG on the Taiwan-developed TAIDE LLM), a fact-checking system using Claude API and the Model Context Protocol (MCP), the Changhua Christian Hospital consultation system, and an Amis (阿美族語) dialogue system.
+
+## About
+
+- [About Yao-Chung Fan](https://yfan.nlpnchu.org/about.md): full bio, position, research interests, affiliation, and contact information
+
+## Publications
+
+- [Selected publications (2024–2025)](https://yfan.nlpnchu.org/publications.md): ACL 2025, ACL Findings 2024, IEEE/ACM TASLP 2024, IEEE TLT 2024, ACM TALLIP 2024, The Web Conference 2025, ROCLING 2024
+- [Google Scholar profile](https://scholar.google.com/citations?user=AGJnJ98AAAAJ&hl=en)
+
+## Deployed AI Services
+
+- [Deployed AI services](https://yfan.nlpnchu.org/services.md): full list with status, audience, and tech stack
+- [AI 興學伴 (eduxplore)](https://eduxplore.nlpnchu.org/): live campus learning advisor
+
+## Lab
+
+- [NCHU NLP Lab homepage](https://nlpnchu.org/)
+- [GitHub: NCHU-NLP-Lab](https://github.com/NCHU-NLP-Lab)
+- [Hugging Face: NchuNLP](https://huggingface.co/NchuNLP)
+
+## Contact
+
+- Email: yfan@nchu.edu.tw
+- Office: Science Building Room 704, National Chung Hsing University
+- Personal site: https://yfan.nlpnchu.org/
