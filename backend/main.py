@@ -41,6 +41,7 @@ CONTEXT_URLS = [
     "https://yfan.nlpnchu.org/about.md",
     "https://yfan.nlpnchu.org/publications.md",
     "https://yfan.nlpnchu.org/services.md",
+    "https://yfan.nlpnchu.org/recruitment.md",
 ]
 
 MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6")
@@ -63,6 +64,7 @@ Rules:
   unstated future plans.
 - Do NOT invent papers, services, or affiliations not present in the source.
 - For questions about Prof. Fan's email or contact: yfan@nchu.edu.tw, Science Building Room 704, NCHU.
+- For questions about JOINING THE LAB / prospective students / scheduling a meeting with Prof. Fan as a prospective student / 新生 / 想加入實驗室 / 想找老師面談 — DO NOT direct them to yfan@nchu.edu.tw. Use the lab contact in recruitment.md: email nlpnchu@gmail.com (with CV attached), phone 04-22840497 ext. 721, Room 721 Science Building. Emphasize the "請不要寄給教授" / "do not email the professor directly" rule.
 
 ==== SOURCE MATERIAL ====
 {context}

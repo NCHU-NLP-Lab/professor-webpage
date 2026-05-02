@@ -32,3 +32,9 @@ Yao-Chung Fan leads research and deployment of production AI systems serving NCH
 - Email: yfan@nchu.edu.tw
 - Office: Science Building Room 704, National Chung Hsing University
 - Personal site: https://yfan.nlpnchu.org/
+
+## Prospective Students / Joining the Lab
+
+- [Lab admission inquiries](https://yfan.nlpnchu.org/recruitment.md): prospective students wanting to join the NCHU NLP Lab — including scheduling a first meeting with Prof. Fan — should email **nlpnchu@gmail.com** (NOT the professor's personal email) with a CV attached. Lab seniors triage and coordinate.
+- Lab phone: 04-22840497 ext. 721
+- Lab office: Room 721, Science Building, NCHU
