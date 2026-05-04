@@ -155,7 +155,10 @@ def _daily_check() -> bool:
 def _client_ip(request: Request) -> str:
     fwd = request.headers.get("x-forwarded-for", "")
     if fwd:
-        return fwd.split(",")[0].strip()
+        # Cloud Run's GFE preserves any client-supplied X-Forwarded-For values and
+        # appends the real client IP to the end. Use the LAST entry, not the first
+        # — taking [0] would let an attacker spoof their IP and defeat per-IP RL.
+        return fwd.split(",")[-1].strip()
     return request.client.host if request.client else "unknown"
 
 
@@ -198,12 +201,16 @@ async def healthz():
 
 @app.post("/chat")
 async def chat(body: ChatReq, request: Request) -> StreamingResponse:
+    ip = _client_ip(request)
+    ua = request.headers.get("user-agent", "")[:80]
     if not _origin_ok(request):
+        log.warning("REJECT origin ip=%s ua=%s", ip, ua)
         raise HTTPException(status_code=403, detail="forbidden")
     if not _daily_check():
+        log.warning("REJECT daily ip=%s", ip)
         raise HTTPException(status_code=429, detail="daily quota exceeded")
-    ip = _client_ip(request)
     if not _rate_check(ip):
+        log.warning("REJECT rate ip=%s", ip)
         raise HTTPException(status_code=429, detail="rate limit exceeded")
 
     log.info("Q ip=%s q=%s", ip, body.q)

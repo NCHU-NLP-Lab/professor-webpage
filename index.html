@@ -1161,8 +1161,7 @@
     if (reduce) draw(); else requestAnimationFrame(draw);
   }
 
-  // QA backend: paste your Cloud Run URL after `gcloud run deploy` finishes.
-  // Empty string → fall back to canned replies (useful for offline preview).
+  // QA backend — Cloud Run service yfan-qa, asia-east1.
   const QA_API_URL = 'https://yfan-qa-377867461718.asia-east1.run.app/chat';
 
   function bootChat() {
@@ -1170,16 +1169,6 @@
     if (!form) return;
     const input = document.getElementById('chat-input');
     const out = document.getElementById('chat-output');
-
-    const cannedReplies = [
-      'UI shell — QA 後端尚未串接（QA_API_URL 為空）。部署 backend/ 到 Cloud Run 後，把網址填到 prototype/v-warm/index.html 的 QA_API_URL 即可啟用真實問答。',
-    ];
-
-    async function fakeReply(ans) {
-      const reply = cannedReplies[Math.floor(Math.random() * cannedReplies.length)];
-      await new Promise(r => setTimeout(r, 280));
-      await streamText(ans, reply, { minDelay: 10, maxDelay: 32 });
-    }
 
     async function realReply(ans, q) {
       let res;
@@ -1233,11 +1222,7 @@
       out.hidden = false;
       out.innerHTML = `<span class="q">${escapeHtml(q)}</span><span class="a" id="answer"></span>`;
       const ans = document.getElementById('answer');
-      if (QA_API_URL) {
-        await realReply(ans, q);
-      } else {
-        await fakeReply(ans);
-      }
+      await realReply(ans, q);
     });
   }
 
