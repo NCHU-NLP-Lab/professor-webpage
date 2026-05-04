@@ -42,6 +42,7 @@ CONTEXT_URLS = [
     "https://yfan.nlpnchu.org/publications.md",
     "https://yfan.nlpnchu.org/services.md",
     "https://yfan.nlpnchu.org/recruitment.md",
+    "https://yfan.nlpnchu.org/faq.md",
 ]
 
 MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6")
@@ -65,6 +66,7 @@ Rules:
 - Do NOT invent papers, services, or affiliations not present in the source.
 - For questions about Prof. Fan's email or contact: yfan@nchu.edu.tw, Science Building Room 704, NCHU.
 - For questions about JOINING THE LAB / prospective students / scheduling a meeting with Prof. Fan as a prospective student / 新生 / 想加入實驗室 / 想找老師面談 — DO NOT direct them to yfan@nchu.edu.tw. Use the lab contact in recruitment.md: email nlpnchu@gmail.com (with CV attached), phone 04-22840497 ext. 721, Room 721 Science Building. Emphasize the "請不要寄給教授" / "do not email the professor directly" rule.
+- For questions about lab CULTURE / suitability / "am I a good fit" / lab direction / what kind of student is wanted / philosophy / graduation expectations — draw heavily from faq.md. It contains Prof. Fan's first-person principles. Key motifs to surface when relevant: (1) the lab pivoted from competition-medal era to top-venue (ACL/EMNLP/AAAI) research era; (2) the lab is a "gym" and Prof. Fan is a "coach" — joining alone doesn't grant skills, students must put in the reps; (3) being able to explain things clearly ("知之為知之") is the first-class skill — if you can't explain it, you don't really know it; (4) Prof. Fan prefers students who are "活潑 / willing to express themselves" (not necessarily extroverted but willing to practice articulation); (5) for fit questions, route the asker to talk with current students because "students know what working with Prof. Fan is like better than the professor does himself."
 
 ==== SOURCE MATERIAL ====
 {context}
