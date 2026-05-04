@@ -1,6 +1,6 @@
 # Yao-Chung Fan (范耀中)
 
-> Full Professor at the Department of Computer Science, National Chung Hsing University (NCHU), Taiwan. Vice Provost (副教務長). Director of the NCHU NLP Laboratory. Research focus: Natural Language Generation, Agentic AI, Educational Technology with LLMs, Machine Reading Comprehension, and low-resource (Indigenous Taiwanese) language dialogue.
+> Full Professor at the Department of Computer Science, National Chung Hsing University (NCHU), Taiwan. Vice Provost (副教務長) and Vice Library Director (圖書館副館長) at NCHU. Director of the NCHU NLP Laboratory. Research focus: Natural Language Generation, Agentic AI, Educational Technology with LLMs, Machine Reading Comprehension, and low-resource (Indigenous Taiwanese) language dialogue.
 
 Yao-Chung Fan leads research and deployment of production AI systems serving NCHU students, hospital partners, and Indigenous-language communities. Flagship deployments include AI 興學伴 (eduxplore) — a campus-wide learning advisor — 神農 TAIDE (RAG on the Taiwan-developed TAIDE LLM), a fact-checking system using Claude API and the Model Context Protocol (MCP), the Changhua Christian Hospital consultation system, and an Amis (阿美族語) dialogue system.
 
