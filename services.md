@@ -85,14 +85,6 @@ Multisensory visual description platform: curators use vision-language models to
 - Tech / keywords: VLM, Accessibility, Audio Description
 - Status: **Live**
 
-### Picture Book Finder
-
-Picture-book search and recommendation prototype built on a research team's moderated, coded catalogue of 108 books.
-
-- URL: https://storybook.nlpnchu.org/
-- Tech / keywords: Recommendation, Education, Prototype
-- Status: **Prototype**
-
 ## Healthcare
 
 ### MedScribe — MedScribe AI 聽診助手

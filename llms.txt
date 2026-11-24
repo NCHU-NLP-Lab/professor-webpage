@@ -25,7 +25,6 @@ Yao-Chung Fan leads research and deployment of AI systems serving NCHU students,
 - [AI 小貓 (AI-assisted Cataloging)](https://aicat.nlpnchu.org/): AI-assisted cataloging for the NCHU Library: matches NCL CIP, Library of Congress authority records, and similar local holdings to propose traceable classification and call-number suggestions, with librarians making the final decision.
 - [Giant Unearthed (鯨掘・骨語) WebAR Exhibit](https://whale.nlpnchu.org/): Interactive missions and a WebAR experience for the joint exhibition by the NCHU Library, the National Museum of Natural Science, and the NCHU Museum of Natural History.
 - [VisionBridge](https://visionbridge.nlpnchu.org/): Multisensory visual description platform: curators use vision-language models to generate audio descriptions of artworks, conditioned on the intended listener.
-- [Picture Book Finder](https://storybook.nlpnchu.org/): Picture-book search and recommendation prototype built on a research team's moderated, coded catalogue of 108 books.
 - [MedScribe](https://asr.nlpnchu.org/): Ambient clinical scribe: transcribes doctor-patient conversations in real time, organizes a structured history following OPQRST-A, and alerts the physician to red-flag symptoms.
 
 ## Lab
