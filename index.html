@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Yao-Chung Fan (范耀中) · 中興大學資工系教授 · NLP Lab 主持人</title>
-<meta name="description" content="Yao-Chung Fan (范耀中) — Full Professor at NCHU CS, Director of the NCHU NLP Lab. Research on Natural Language Generation, Agentic AI, Educational LLMs. Leads deployment of AI 興學伴 (eduxplore), 神農 TAIDE, fact-checking with Claude+MCP, Changhua Christian Hospital consultation, and Amis Indigenous-language dialogue.">
+<meta name="description" content="Yao-Chung Fan (范耀中) — Full Professor at NCHU CS, Director of the NCHU NLP Lab. Research on Natural Language Generation, Agentic AI, Educational LLMs. Leads deployment of AI 興學伴 (eduxplore), 神農 Agent for plant diagnosis, fact-checking with Claude+MCP, library and museum AI (AI 小貓, VisionBridge, WebAR), and Amis Indigenous-language dialogue.">
 <meta name="author" content="Yao-Chung Fan">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://yfan.nlpnchu.org/">
@@ -537,13 +537,12 @@
           "position": 1,
           "item": {
             "@type": "WebApplication",
-            "@id": "https://eduxplore.nlpnchu.org/#app",
+            "@id": "https://yfan.nlpnchu.org/#service-eduxplore",
             "name": "AI 興學伴 (eduxplore)",
-            "alternateName": "NCHU AI Learning Advisor",
+            "alternateName": "AI 興學伴",
             "url": "https://eduxplore.nlpnchu.org/",
             "applicationCategory": "EducationalApplication",
-            "operatingSystem": "Web",
-            "description": "Campus-wide learning advisor integrating NCHU institutional information (course search, faculty lookup, learning resources) into a conversational interface.",
+            "description": "Campus learning advisor integrating NCHU's institutional information (course search, faculty lookup, learning resources) into a conversational interface.",
             "creator": {
               "@id": "https://yfan.nlpnchu.org/#person"
             }
@@ -554,10 +553,11 @@
           "position": 2,
           "item": {
             "@type": "SoftwareApplication",
-            "@id": "https://yfan.nlpnchu.org/#service-shennong-taide",
-            "name": "神農 TAIDE",
-            "applicationCategory": "BusinessApplication",
-            "description": "Retrieval-Augmented Generation system built on TAIDE, the Taiwan-developed traditional Chinese LLM.",
+            "@id": "https://yfan.nlpnchu.org/#service-fact-checking",
+            "name": "Fact-Checking System",
+            "alternateName": "事實查核系統",
+            "applicationCategory": "UtilitiesApplication",
+            "description": "End-to-end fact verification system using Claude API and the Model Context Protocol (MCP) to coordinate retrieval, evidence checking, and verdict generation.",
             "creator": {
               "@id": "https://yfan.nlpnchu.org/#person"
             }
@@ -568,10 +568,11 @@
           "position": 3,
           "item": {
             "@type": "SoftwareApplication",
-            "@id": "https://yfan.nlpnchu.org/#service-fact-checking",
-            "name": "Fact-Checking System (Claude API + MCP)",
-            "applicationCategory": "BusinessApplication",
-            "description": "End-to-end fact verification system using Anthropic Claude and the Model Context Protocol (MCP) to coordinate retrieval, evidence checking, and verdict generation.",
+            "@id": "https://yfan.nlpnchu.org/#service-amis",
+            "name": "Amis (阿美族語) Dialogue System",
+            "alternateName": "阿美族語對話系統",
+            "applicationCategory": "EducationalApplication",
+            "description": "LLM + speech recognition system for Amis, a low-resource Indigenous Taiwanese language, supporting language preservation, education, and accessibility.",
             "creator": {
               "@id": "https://yfan.nlpnchu.org/#person"
             }
@@ -581,12 +582,13 @@
           "@type": "ListItem",
           "position": 4,
           "item": {
-            "@type": "SoftwareApplication",
-            "@id": "https://yfan.nlpnchu.org/#service-cch",
-            "name": "Changhua Christian Hospital Consultation System",
-            "alternateName": "彰化基督教醫院諮詢系統",
-            "applicationCategory": "HealthApplication",
-            "description": "Smart Q&A system for hospital visiting rules and policies, deployed in partnership with Changhua Christian Hospital — the lab's flagship cross-institution deployment.",
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-shennong-agent",
+            "name": "神農 Agent (Demeter)",
+            "alternateName": "神農 Agent",
+            "url": "https://demeter.nlpnchu.org/",
+            "applicationCategory": "UtilitiesApplication",
+            "description": "AI plant doctor built with NCHU's Smart Sustainable New Agriculture Research Center: an LLM agent with 72 domain tools for pest and disease diagnosis, registered-pesticide recommendation, and academic resource search.",
             "creator": {
               "@id": "https://yfan.nlpnchu.org/#person"
             }
@@ -596,11 +598,122 @@
           "@type": "ListItem",
           "position": 5,
           "item": {
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-agri-kg",
+            "name": "Grape & Beefsteak Tomato Agricultural Knowledge Graph",
+            "alternateName": "農業知識圖譜",
+            "url": "https://kg.nlpnchu.org/",
+            "applicationCategory": "UtilitiesApplication",
+            "description": "Interactive agricultural knowledge graph for grape and beefsteak tomato, used as the reasoning backbone for the diagnosis and greenhouse-patrol systems.",
+            "creator": {
+              "@id": "https://yfan.nlpnchu.org/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-greenhouse-patrol",
+            "name": "Smart Greenhouse Patrol",
+            "alternateName": "智慧溫室巡檢",
+            "url": "https://robot.nlpnchu.org/",
+            "applicationCategory": "UtilitiesApplication",
+            "description": "An AI-driven greenhouse patrol vehicle that navigates by cameras alone, measures on site, consults the knowledge graph, and raises warnings before disease symptoms appear.",
+            "creator": {
+              "@id": "https://yfan.nlpnchu.org/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
             "@type": "SoftwareApplication",
-            "@id": "https://yfan.nlpnchu.org/#service-amis",
-            "name": "Amis (阿美族語) Dialogue System",
-            "applicationCategory": "LifestyleApplication",
-            "description": "LLM + speech-recognition system for Amis, a low-resource Indigenous Taiwanese language. Supports preservation, education, and accessibility.",
+            "@id": "https://yfan.nlpnchu.org/#service-animal-disease",
+            "name": "Animal Infectious Disease Prioritization System",
+            "alternateName": "動物傳染病優先排序系統",
+            "applicationCategory": "UtilitiesApplication",
+            "description": "Experimental research prototype for prioritizing animal infectious diseases (not an official result; research reference only).",
+            "creator": {
+              "@id": "https://yfan.nlpnchu.org/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-aicat",
+            "name": "AI 小貓 (AI-assisted Cataloging)",
+            "alternateName": "AI 小貓",
+            "url": "https://aicat.nlpnchu.org/",
+            "applicationCategory": "UtilitiesApplication",
+            "description": "AI-assisted cataloging for the NCHU Library: matches NCL CIP, Library of Congress authority records, and similar local holdings to propose traceable classification and call-number suggestions, with librarians making the final decision.",
+            "creator": {
+              "@id": "https://yfan.nlpnchu.org/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-whale-ar",
+            "name": "Giant Unearthed (鯨掘・骨語) WebAR Exhibit",
+            "alternateName": "鯨掘・骨語 WebAR",
+            "url": "https://whale.nlpnchu.org/",
+            "applicationCategory": "EntertainmentApplication",
+            "description": "Interactive missions and a WebAR experience for the joint exhibition by the NCHU Library, the National Museum of Natural Science, and the NCHU Museum of Natural History.",
+            "creator": {
+              "@id": "https://yfan.nlpnchu.org/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-visionbridge",
+            "name": "VisionBridge",
+            "url": "https://visionbridge.nlpnchu.org/",
+            "applicationCategory": "UtilitiesApplication",
+            "description": "Multisensory visual description platform: curators use vision-language models to generate audio descriptions of artworks, conditioned on the intended listener.",
+            "creator": {
+              "@id": "https://yfan.nlpnchu.org/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-picture-book-finder",
+            "name": "Picture Book Finder",
+            "url": "https://storybook.nlpnchu.org/",
+            "applicationCategory": "EducationalApplication",
+            "description": "Picture-book search and recommendation prototype built on a research team's moderated, coded catalogue of 108 books.",
+            "creator": {
+              "@id": "https://yfan.nlpnchu.org/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "WebApplication",
+            "@id": "https://yfan.nlpnchu.org/#service-medscribe",
+            "name": "MedScribe",
+            "alternateName": "MedScribe AI 聽診助手",
+            "url": "https://asr.nlpnchu.org/",
+            "applicationCategory": "MedicalApplication",
+            "description": "Ambient clinical scribe: transcribes doctor-patient conversations in real time, organizes a structured history following OPQRST-A, and alerts the physician to red-flag symptoms.",
             "creator": {
               "@id": "https://yfan.nlpnchu.org/#person"
             }
@@ -910,10 +1023,11 @@
   /* ---------- SERVICES ---------- */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
     margin-top: 1.5rem;
   }
+  .pub-group + .services-grid { margin-top: 0.9rem; }
   .service-card {
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -1184,9 +1298,10 @@
       <p class="section-label">Deployed Services</p>
       <h2 id="services-h">已上線 AI 服務家族</h2>
       <p class="lead">
-        從研究到部署的完整鏈路：實驗室產出的不只是論文，是真實服務全校學生、合作醫院與原住民語言社群的系統。
+        從研究到部署的完整鏈路：實驗室產出的不只是論文，是真實走進校園、農業現場、圖書館與博物館、診間，以及原住民語言社群的系統。
       </p>
 
+      <p class="pub-group">校園與語言 · Campus & Language</p>
       <div class="services-grid">
 
         <article class="service-card" id="service-eduxplore">
@@ -1201,16 +1316,6 @@
           <a class="external" href="https://eduxplore.nlpnchu.org/" target="_blank" rel="noopener">eduxplore.nlpnchu.org</a>
         </article>
 
-        <article class="service-card" id="service-shennong-taide">
-          <span class="status">Live</span>
-          <h3>神農 TAIDE</h3>
-          <p class="desc">基於 TAIDE（台灣本土 LLM）的 Retrieval-Augmented Generation 架構。</p>
-          <div class="stack">
-            <span class="tag">TAIDE</span>
-            <span class="tag">RAG</span>
-          </div>
-        </article>
-
         <article class="service-card" id="service-fact-checking">
           <span class="status">Live</span>
           <h3>事實查核系統</h3>
@@ -1219,18 +1324,6 @@
             <span class="tag">Claude API</span>
             <span class="tag">MCP</span>
             <span class="tag">Agent</span>
-          </div>
-        </article>
-
-        <article class="service-card flagship" id="service-cch">
-          <p class="flagship-tag">Cross-institution Flagship</p>
-          <span class="status">Live</span>
-          <h3>彰化基督教醫院諮詢系統</h3>
-          <p class="desc">與彰化基督教醫院合作部署的入館規則智慧問答系統 — 實驗室從校內走向跨機構落地的代表作。</p>
-          <div class="stack">
-            <span class="tag">Healthcare</span>
-            <span class="tag">RAG</span>
-            <span class="tag">Cross-Institution</span>
           </div>
         </article>
 
@@ -1247,6 +1340,126 @@
         </article>
 
       </div>
+
+      <p class="pub-group">智慧農業 · Agriculture</p>
+      <div class="services-grid">
+
+        <article class="service-card" id="service-shennong-agent">
+          <span class="status">Live</span>
+          <h3>神農 Agent</h3>
+          <p class="desc">AI 植物醫生 — 與興大智慧永續新農業研究發展中心合作，結合 LLM Agent 與 72 項專業工具，提供病蟲害診斷、登記農藥推薦與學術資源搜尋，從症狀到處方一站完成。</p>
+          <div class="stack">
+            <span class="tag">Agent</span>
+            <span class="tag">Tool Use</span>
+            <span class="tag">Plant Diagnosis</span>
+          </div>
+          <a class="external" href="https://demeter.nlpnchu.org/" target="_blank" rel="noopener">demeter.nlpnchu.org</a>
+        </article>
+
+        <article class="service-card" id="service-agri-kg">
+          <span class="status">Live</span>
+          <h3>農業知識圖譜</h3>
+          <p class="desc">葡萄與牛蕃茄的農業知識圖譜，可互動瀏覽作物、病蟲害與栽培管理之間的關聯，並作為診斷與巡檢系統的推理依據。</p>
+          <div class="stack">
+            <span class="tag">Knowledge Graph</span>
+            <span class="tag">Agriculture</span>
+          </div>
+          <a class="external" href="https://kg.nlpnchu.org/" target="_blank" rel="noopener">kg.nlpnchu.org</a>
+        </article>
+
+        <article class="service-card" id="service-greenhouse-patrol">
+          <span class="status research">Research</span>
+          <h3>智慧溫室巡檢</h3>
+          <p class="desc">由 AI 駕駛的溫室巡檢車：只靠鏡頭找路，看見異常就實地量測、查知識圖譜，在病徵出現之前提出預警。</p>
+          <div class="stack">
+            <span class="tag">Embodied Agent</span>
+            <span class="tag">VLM</span>
+            <span class="tag">Knowledge Graph</span>
+          </div>
+          <a class="external" href="https://robot.nlpnchu.org/" target="_blank" rel="noopener">robot.nlpnchu.org</a>
+        </article>
+
+        <article class="service-card" id="service-animal-disease">
+          <span class="status research">Prototype</span>
+          <h3>動物傳染病優先排序系統</h3>
+          <p class="desc">動物傳染病優先排序的試驗性研究原型（非官方正式結果，僅供研究參考）。</p>
+          <div class="stack">
+            <span class="tag">Decision Support</span>
+            <span class="tag">Prototype</span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="pub-group">圖書館與文化 · Library & Culture</p>
+      <div class="services-grid">
+
+        <article class="service-card" id="service-aicat">
+          <span class="status research">Trial</span>
+          <h3>AI 小貓</h3>
+          <p class="desc">中興大學圖書館的 AI 輔助編目 — 比對國圖 CIP、LC 權威書目與館內相似館藏，提出可追溯的分類與索書號建議，由館員做最後判斷。</p>
+          <div class="stack">
+            <span class="tag">Cataloging</span>
+            <span class="tag">Retrieval</span>
+            <span class="tag">Human-in-the-loop</span>
+          </div>
+          <a class="external" href="https://aicat.nlpnchu.org/" target="_blank" rel="noopener">aicat.nlpnchu.org</a>
+        </article>
+
+        <article class="service-card" id="service-whale-ar">
+          <span class="status">Live</span>
+          <h3>鯨掘・骨語 WebAR</h3>
+          <p class="desc">興大圖書館 × 國立自然科學博物館 × 興大自然史博物館聯展的互動任務與 WebAR 體驗 — 對準展牆，看巨鯨從化石甦醒巡游。</p>
+          <div class="stack">
+            <span class="tag">WebAR</span>
+            <span class="tag">Exhibit</span>
+            <span class="tag">Interactive</span>
+          </div>
+          <a class="external" href="https://whale.nlpnchu.org/" target="_blank" rel="noopener">whale.nlpnchu.org</a>
+        </article>
+
+        <article class="service-card" id="service-visionbridge">
+          <span class="status">Live</span>
+          <h3>VisionBridge</h3>
+          <p class="desc">多感官視覺描述平台 — 策展團隊以視覺語言模型為藏品生成口述影像，並可依聆聽對象的視力條件指定產出方式。</p>
+          <div class="stack">
+            <span class="tag">VLM</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">Audio Description</span>
+          </div>
+          <a class="external" href="https://visionbridge.nlpnchu.org/" target="_blank" rel="noopener">visionbridge.nlpnchu.org</a>
+        </article>
+
+        <article class="service-card" id="service-picture-book-finder">
+          <span class="status research">Prototype</span>
+          <h3>Picture Book Finder</h3>
+          <p class="desc">繪本檢索與推薦原型 — 以研究團隊編碼的 108 本繪本目錄為基礎，協助依主題與科學概念找書。</p>
+          <div class="stack">
+            <span class="tag">Recommendation</span>
+            <span class="tag">Education</span>
+            <span class="tag">Prototype</span>
+          </div>
+          <a class="external" href="https://storybook.nlpnchu.org/" target="_blank" rel="noopener">storybook.nlpnchu.org</a>
+        </article>
+
+      </div>
+
+      <p class="pub-group">醫療 · Healthcare</p>
+      <div class="services-grid">
+
+        <article class="service-card" id="service-medscribe">
+          <span class="status research">Research / Demo</span>
+          <h3>MedScribe AI 聽診助手</h3>
+          <p class="desc">在診間聆聽醫病對話、即時產生逐字稿，依 OPQRST-A 架構整理結構化病史，並在偵測到危急症狀時提示醫師。</p>
+          <div class="stack">
+            <span class="tag">ASR</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Clinical Notes</span>
+          </div>
+          <a class="external" href="https://asr.nlpnchu.org/" target="_blank" rel="noopener">asr.nlpnchu.org</a>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -1256,7 +1469,7 @@
       <p class="section-label">Publications</p>
       <h2 id="publications-h">代表性論文</h2>
       <p class="lead">
-        近期工作聚焦於問題生成、檢索增強、表格與法律檢索、持續學習、低資源語言與教育科技 LLM 應用。以下列出 ACM / IEEE Transactions 期刊論文與頂尖會議論文;完整清單請見 DBLP / Google Scholar。
+        近期工作聚焦於問題生成、檢索增強、表格與法律檢索、持續學習、低資源語言與教育科技 LLM 應用。以下列出 ACM / IEEE Transactions 期刊論文與頂尖會議論文；完整清單請見 DBLP / Google Scholar。
       </p>
 
       <div class="profile-links">

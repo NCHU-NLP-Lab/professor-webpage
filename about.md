@@ -39,7 +39,7 @@ Visiting Scholar (2010), Pervasive Data Access Research Group, hosted by Prof. W
 
 ## Bio
 
-Yao-Chung Fan is a full professor at the Department of Computer Science (中興大學資工系), National Chung Hsing University (NCHU), where he directs the NCHU NLP Lab. His research bridges foundational NLG / MRC work with deployed AI systems serving NCHU students (AI 興學伴 / eduxplore), hospital partners (Changhua Christian Hospital consultation), and Indigenous-language communities (Amis dialogue system). His recent work focuses on Agentic AI, educational LLMs, and retrieval-grounded generation.
+Yao-Chung Fan is a full professor at the Department of Computer Science (中興大學資工系), National Chung Hsing University (NCHU), where he directs the NCHU NLP Lab. His research bridges foundational NLG / MRC work with deployed AI systems serving NCHU students (AI 興學伴 / eduxplore), agriculture (神農 Agent plant-diagnosis agent), libraries and museums (AI 小貓, VisionBridge), and Indigenous-language communities (Amis dialogue system). His recent work focuses on Agentic AI, educational LLMs, and retrieval-grounded generation.
 
 ## Personal Site
 

@@ -2,7 +2,7 @@
 
 > Full Professor at the Department of Computer Science (中興大學資工系 / 資訊工程學系), National Chung Hsing University (NCHU), Taiwan. Director of the NCHU NLP Laboratory. Research focus: Natural Language Generation, Agentic AI, Educational Technology with LLMs, Machine Reading Comprehension, and low-resource (Indigenous Taiwanese) language dialogue.
 
-Yao-Chung Fan leads research and deployment of production AI systems serving NCHU students, hospital partners, and Indigenous-language communities. Flagship deployments include AI 興學伴 (eduxplore) — a campus-wide learning advisor — 神農 TAIDE (RAG on the Taiwan-developed TAIDE LLM), a fact-checking system using Claude API and the Model Context Protocol (MCP), the Changhua Christian Hospital consultation system, and an Amis (阿美族語) dialogue system.
+Yao-Chung Fan leads research and deployment of AI systems serving NCHU students, farmers and plant doctors, libraries and museums, clinicians, and Indigenous-language communities. Deployments include AI 興學伴 (eduxplore) — a campus-wide learning advisor — 神農 Agent (an LLM agent with 72 domain tools for plant pest and disease diagnosis), an agricultural knowledge graph and AI-driven greenhouse patrol, a fact-checking system using Claude API and the Model Context Protocol (MCP), AI 小貓 (AI-assisted library cataloging), VisionBridge (audio description of artworks with vision-language models), the 鯨掘・骨語 WebAR exhibit, MedScribe (ambient clinical scribe), and an Amis (阿美族語) dialogue system.
 
 ## About
 
@@ -19,6 +19,14 @@ Yao-Chung Fan leads research and deployment of production AI systems serving NCH
 
 - [Deployed AI services](https://yfan.nlpnchu.org/services.md): full list with status, audience, and tech stack
 - [AI 興學伴 (eduxplore)](https://eduxplore.nlpnchu.org/): live campus learning advisor
+- [神農 Agent (Demeter)](https://demeter.nlpnchu.org/): AI plant doctor built with NCHU's Smart Sustainable New Agriculture Research Center: an LLM agent with 72 domain tools for pest and disease diagnosis, registered-pesticide recommendation, and academic resource search.
+- [Grape & Beefsteak Tomato Agricultural Knowledge Graph](https://kg.nlpnchu.org/): Interactive agricultural knowledge graph for grape and beefsteak tomato, used as the reasoning backbone for the diagnosis and greenhouse-patrol systems.
+- [Smart Greenhouse Patrol](https://robot.nlpnchu.org/): An AI-driven greenhouse patrol vehicle that navigates by cameras alone, measures on site, consults the knowledge graph, and raises warnings before disease symptoms appear.
+- [AI 小貓 (AI-assisted Cataloging)](https://aicat.nlpnchu.org/): AI-assisted cataloging for the NCHU Library: matches NCL CIP, Library of Congress authority records, and similar local holdings to propose traceable classification and call-number suggestions, with librarians making the final decision.
+- [Giant Unearthed (鯨掘・骨語) WebAR Exhibit](https://whale.nlpnchu.org/): Interactive missions and a WebAR experience for the joint exhibition by the NCHU Library, the National Museum of Natural Science, and the NCHU Museum of Natural History.
+- [VisionBridge](https://visionbridge.nlpnchu.org/): Multisensory visual description platform: curators use vision-language models to generate audio descriptions of artworks, conditioned on the intended listener.
+- [Picture Book Finder](https://storybook.nlpnchu.org/): Picture-book search and recommendation prototype built on a research team's moderated, coded catalogue of 108 books.
+- [MedScribe](https://asr.nlpnchu.org/): Ambient clinical scribe: transcribes doctor-patient conversations in real time, organizes a structured history following OPQRST-A, and alerts the physician to red-flag symptoms.
 
 ## Lab
 
