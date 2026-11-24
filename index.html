@@ -1867,14 +1867,36 @@
       }
     }
 
+    const sendBtn = form.querySelector('button[type="submit"]');
+    let busy = false;          // one request in flight at a time
+    let composing = false;     // IME (注音 / 拼音) candidate window open
+    let composedAt = 0;        // Safari fires compositionend BEFORE the Enter keydown
+
+    input.addEventListener('compositionstart', () => { composing = true; });
+    input.addEventListener('compositionend', () => { composing = false; composedAt = Date.now(); });
+    // Enter that only confirms an IME candidate must not submit the form.
+    input.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const imeEnter = e.isComposing || composing || e.keyCode === 229 || Date.now() - composedAt < 100;
+      if (imeEnter || busy) e.preventDefault();
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (busy) return;
       const q = input.value.trim();
       if (!q) return;
+      busy = true;
+      sendBtn.disabled = true;
       out.hidden = false;
-      out.innerHTML = `<span class="q">${escapeHtml(q)}</span><span class="a" id="answer"></span>`;
+      out.innerHTML = `<span class="q">${escapeHtml(q)}</span><span class="a caret" id="answer"></span>`;
       const ans = document.getElementById('answer');
-      await realReply(ans, q);
+      try {
+        await realReply(ans, q);
+      } finally {
+        busy = false;
+        sendBtn.disabled = false;
+      }
     });
   }
 
