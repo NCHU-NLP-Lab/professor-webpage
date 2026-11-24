@@ -1,7 +1,7 @@
 # Yao-Chung Fan / 范耀中
 
-**Full Professor**, Department of Computer Science, National Chung Hsing University (NCHU), Taiwan
-**Director**, NCHU NLP Laboratory
+**Full Professor**, Department of Computer Science (資工系 / 資訊工程學系), National Chung Hsing University (NCHU / 中興大學), Taiwan
+**Director**, NCHU NLP Laboratory (自然語言處理實驗室)
 
 ## Research Interests
 
@@ -14,7 +14,7 @@
 
 ## Affiliation
 
-- Department of Computer Science, National Chung Hsing University
+- Department of Computer Science (中興大學資工系 / 資訊工程學系), National Chung Hsing University
 - Office: Science Building Room 704
 - Email: yfan@nchu.edu.tw
 
@@ -39,7 +39,7 @@ Visiting Scholar (2010), Pervasive Data Access Research Group, hosted by Prof. W
 
 ## Bio
 
-Yao-Chung Fan is a full professor at the Department of Computer Science, National Chung Hsing University (NCHU), where he directs the NCHU NLP Lab. His research bridges foundational NLG / MRC work with deployed AI systems serving NCHU students (AI 興學伴 / eduxplore), hospital partners (Changhua Christian Hospital consultation), and Indigenous-language communities (Amis dialogue system). His recent work focuses on Agentic AI, educational LLMs, and retrieval-grounded generation.
+Yao-Chung Fan is a full professor at the Department of Computer Science (中興大學資工系), National Chung Hsing University (NCHU), where he directs the NCHU NLP Lab. His research bridges foundational NLG / MRC work with deployed AI systems serving NCHU students (AI 興學伴 / eduxplore), hospital partners (Changhua Christian Hospital consultation), and Indigenous-language communities (Amis dialogue system). His recent work focuses on Agentic AI, educational LLMs, and retrieval-grounded generation.
 
 ## Personal Site
 
