@@ -106,7 +106,32 @@ Anthropic、OpenAI…）發表論文，學術頂端跟工程頂端終究會匯�
 
 ---
 
-## English Summary (for international students)
+## 訪客常問的幾個具體問題（2026-11 補充）
+
+以下是網站訪客實際問過、我直接回答的問題。
+
+**老師目前開哪些課？**
+大學部的**演算法**，以及研究所的**資訊檢索**。
+
+**收在職專班的學生嗎？**
+一樣要先面談，談過才決定。請照前面的流程寄信到 `nlpnchu@gmail.com`。
+
+**目前收博士生嗎？**
+以**自己實驗室直升**的學生為主。
+
+**我是備取的碩士生，可以先來談嗎？**
+可以。面談請**直接找實驗室**安排，聯絡方式請見實驗室網頁
+（https://nlpnchu.org ）— 一樣不是寄給我本人。
+
+**收外籍生／國際學生嗎？**
+**暫時不收外籍生。**
+
+**實驗室要打卡嗎？有固定到實驗室的時間嗎？**
+**不需要打卡。**每天自己規劃**六小時**待在實驗室。
+
+---
+
+## English Summary
 
 **Lab pivot**: We've shifted from a "competition-medal" lab to a
 "top-venue research" lab. Short-term goal: strong submissions to ACL /
@@ -127,6 +152,15 @@ practice articulating your work.
 publications to graduate, but your thesis must be solid — a clear
 problem framing, a properly run experiment, a complete account
 (positive or negative results both count if well-documented).
+
+**Specific questions (added 2026-11)**: Prof. Fan currently teaches
+undergraduate **Algorithms** and graduate **Information Retrieval**.
+The lab is **not accepting international students for now**. PhD
+positions go mainly to students continuing from within the lab.
+In-service (part-time) master's applicants also need an interview
+first. Waitlisted master's applicants may arrange an interview through
+the lab (see https://nlpnchu.org). No clock-in is required; students
+plan their own **six hours a day** in the lab.
 
 **To apply**: Email **`nlpnchu@gmail.com`** with your CV. Lab seniors
 triage. Do **not** email Prof. Fan directly — current students know
