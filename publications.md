@@ -18,11 +18,12 @@ ORCID: [0000-0002-6894-015X](https://orcid.org/0000-0002-6894-015X) · DBLP: [Ya
 
 ## Top Conferences (WWW, ACL, EMNLP, ICDE, ICDM, CIKM, IPDPS)
 
+- **How Much Retrieval Depth Does Your Reader Need? Noise Ceilings and Cost-Effectiveness in Table QA**. *Findings of EMNLP 2026*, 2026. [ACL Anthology](https://aclanthology.org/2026.findings-emnlp.2245/)
 - **CGPT: Cluster-Guided Partial Tables with LLM-Generated Supervision for Table Retrieval**. *The Web Conference 2026 (WWW '26)*, 2026. [doi:10.1145/3774904.3792916](https://doi.org/10.1145/3774904.3792916)
 - **STAR: Semantic Table Representation with Header-Aware Clustering and Adaptive Weighted Fusion**. *The Web Conference 2026 (WWW '26)*, 2026. [doi:10.1145/3774904.3792962](https://doi.org/10.1145/3774904.3792962)
 - **Smart Book Seeker: Agent-Augmented Retrieval System for Metadata-Sparse Libraries**. *The Web Conference 2026 (WWW '26 Companion)*, 2026. [doi:10.1145/3774905.3795723](https://doi.org/10.1145/3774905.3795723)
 - **Saliency-Guided Embedding Alignment for Query-to-Document Legal Case Retrieval**. *The Web Conference 2026 (WWW '26 Companion)*, 2026. [doi:10.1145/3774905.3795085](https://doi.org/10.1145/3774905.3795085)
-- **GAIN: Gradual Adaptation for Continual Learning in Low-resource Environments**. *The Web Conference 2025 (WWW '25 Companion)*, 2025. [doi:10.1145/3701716.3715499](https://doi.org/10.1145/3701716.3715499)
+- **GAIN: Gradual Adaptation for Continual Learning in Low-resource Environments**. *The Web Conference 2025 (WWW '25)*, 2025. [doi:10.1145/3701716.3715499](https://doi.org/10.1145/3701716.3715499)
 - **Enhancing Distractor Generation for Multiple-Choice Questions with Retrieval Augmented Pretraining and Knowledge Graph Integration**. *Findings of ACL 2024*, 2024. [doi:10.18653/v1/2024.findings-acl.655](https://doi.org/10.18653/v1/2024.findings-acl.655)
 - **Distractor Generation based on Text2Text Language Models with Pseudo Kullback-Leibler Divergence Regulation**. *Findings of ACL 2023*, 2023. [doi:10.18653/v1/2023.findings-acl.790](https://doi.org/10.18653/v1/2023.findings-acl.790)
 - **CDGP: Automatic Cloze Distractor Generation based on Pre-trained Language Model**. *Findings of EMNLP 2022*, 2022. [doi:10.18653/v1/2022.findings-emnlp.429](https://doi.org/10.18653/v1/2022.findings-emnlp.429)
@@ -34,6 +35,7 @@ ORCID: [0000-0002-6894-015X](https://orcid.org/0000-0002-6894-015X) · DBLP: [Ya
 
 ## Other NLP Venues and Workshops
 
+- **ToolFuse: Documentation-Intent Fusion for Training-Free Tool Retrieval**. *REALM @ EMNLP 2026 (Workshop for Research on Agent Language Models)*, 2026. [ACL Anthology](https://aclanthology.org/2026.realm-1.99/)
 - **Improving Table Retrieval with Question Generation from Partial Tables**. *TRL @ ACL 2025 (Workshop on Table Representation Learning)*, 2025. [doi:10.18653/v1/2025.trl-1.19](https://doi.org/10.18653/v1/2025.trl-1.19)
 - **Personalized Cloze Test Generation with Large Language Models: Streamlining MCQ Development and Enhancing Adaptive Learning**. *INLG 2024*, 2024. [doi:10.18653/v1/2024.inlg-main.26](https://doi.org/10.18653/v1/2024.inlg-main.26)
 - **Automating True-False Multiple-Choice Question Generation and Evaluation with Retrieval-based Accuracy Differential**. *INLG 2024*, 2024. [doi:10.18653/v1/2024.inlg-main.16](https://doi.org/10.18653/v1/2024.inlg-main.16)
@@ -62,3 +64,5 @@ For earlier work (mobile crowdsensing, Wi-Fi log mining, non-intrusive load moni
 - Cross-lingual and Low-Resource NLP
 - Educational Technology
 - Agentic AI
+- Tool Retrieval
+- Table Question Answering
